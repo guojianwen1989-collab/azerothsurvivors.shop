@@ -210,6 +210,9 @@ for (const file of htmlFiles) {
   if (!html.includes('name="google-site-verification"')) {
     html = html.replace('</head>', '  <meta name="google-site-verification" content="l-io4uzFsuhl0rYud79Yvs1fm0TrrT7Y5qHSwEAJjzA">\n</head>');
   }
+  if (!html.includes('G-934PZQ8JZ2')) {
+    html = html.replace('</head>', '  <script async src="https://www.googletagmanager.com/gtag/js?id=G-934PZQ8JZ2"></script>\n  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-934PZQ8JZ2");</script>\n</head>');
+  }
   fs.writeFileSync(file, html);
 }
 const urlsToFiles = new Map();
