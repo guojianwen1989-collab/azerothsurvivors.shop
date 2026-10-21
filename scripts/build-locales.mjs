@@ -199,6 +199,14 @@ function collectHtml(folder) {
   }
 }
 collectHtml(root);
+const adLink = 'https://araplhn.org/4/b04d973c362261149ebfae2e088bd3bf';
+const adCopy = {
+  en: ['Sponsored link', 'View offer ↗'],
+  de: ['Gesponserter Link', 'Angebot ansehen ↗'],
+  fr: ['Lien sponsorisé', 'Voir l’offre ↗'],
+  ja: ['広告リンク', '広告を見る ↗'],
+  zh: ['赞助链接', '查看推荐 ↗'],
+};
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
   if (!html.includes('class="footer-legal"')) {
@@ -213,6 +221,11 @@ for (const file of htmlFiles) {
   if (!html.includes('G-934PZQ8JZ2')) {
     html = html.replace('</head>', '  <script async src="https://www.googletagmanager.com/gtag/js?id=G-934PZQ8JZ2"></script>\n  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-934PZQ8JZ2");</script>\n</head>');
   }
+  html = html.replace(/<div class="shell footer-ad">[\s\S]*?<\/div>/g, '');
+  const language = html.match(/<html lang="([^"]+)"/)?.[1]?.slice(0, 2).toLowerCase() || 'en';
+  const [label, linkText] = adCopy[language] || adCopy.en;
+  const section = `<div class="shell footer-ad"><span>${label}</span><a href="${adLink}" target="_blank" rel="sponsored nofollow noopener noreferrer">${linkText}</a></div>`;
+  html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
   fs.writeFileSync(file, html);
 }
 const urlsToFiles = new Map();
