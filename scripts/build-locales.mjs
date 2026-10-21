@@ -3,6 +3,28 @@ import path from 'node:path';
 
 const root = path.resolve('dist');
 const origin = 'https://azerothsurvivors.shop';
+const footerLegal = {
+  en: {
+    heading: 'About this fan guide',
+    text: 'Azeroth Survivors is a free fan game created by Aethus. This independent guide is not affiliated with or endorsed by Aethus or Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment. We do not host or distribute the game or its files.',
+  },
+  'de-de': {
+    heading: 'Über diesen Fan-Guide',
+    text: 'Azeroth Survivors ist ein kostenloses Fan-Spiel von Aethus. Dieser unabhängige Guide ist weder mit Aethus noch mit Blizzard Entertainment verbunden oder von ihnen unterstützt. World of Warcraft ist eine Marke von Blizzard Entertainment. Wir hosten oder verbreiten weder das Spiel noch seine Dateien.',
+  },
+  'fr-fr': {
+    heading: 'À propos de ce guide de fans',
+    text: 'Azeroth Survivors est un jeu de fans gratuit créé par Aethus. Ce guide indépendant n’est ni affilié à Aethus ou Blizzard Entertainment, ni approuvé par eux. World of Warcraft est une marque de Blizzard Entertainment. Nous n’hébergeons ni ne distribuons le jeu ou ses fichiers.',
+  },
+  'ja-jp': {
+    heading: 'このファンガイドについて',
+    text: 'Azeroth SurvivorsはAethusが制作した無料のファンゲームです。この独立したガイドはAethusおよびBlizzard Entertainmentとは無関係で、承認も受けていません。World of WarcraftはBlizzard Entertainmentの商標です。当サイトはゲームやそのファイルをホストまたは配布していません。',
+  },
+  'zh-cn': {
+    heading: '关于本粉丝指南',
+    text: 'Azeroth Survivors 是由 Aethus 制作的免费粉丝游戏。本网站是独立攻略指南，与 Aethus 或暴雪娱乐无关联，也未获得其认可。《魔兽世界》是暴雪娱乐的商标。本网站不托管或分发游戏及其文件。',
+  },
+};
 const locales = [
   { slug: 'en-us', code: 'en-US', name: 'English (US)', short: 'US', country: 'US' },
   { slug: 'en-gb', code: 'en-GB', name: 'English (UK)', short: 'UK', country: 'GB' },
@@ -177,6 +199,15 @@ function collectHtml(folder) {
   }
 }
 collectHtml(root);
+for (const file of htmlFiles) {
+  let html = fs.readFileSync(file, 'utf8');
+  if (html.includes('class="footer-legal"')) continue;
+  const locale = path.relative(root, file).split(path.sep)[0];
+  const notice = footerLegal[locale] || footerLegal.en;
+  const section = `<div class="shell footer-legal"><h2>${notice.heading}</h2><p>${notice.text}</p></div>`;
+  html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
+  fs.writeFileSync(file, html);
+}
 const urlsToFiles = new Map();
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
