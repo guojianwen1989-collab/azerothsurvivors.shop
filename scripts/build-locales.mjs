@@ -201,11 +201,15 @@ function collectHtml(folder) {
 collectHtml(root);
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
-  if (html.includes('class="footer-legal"')) continue;
-  const locale = path.relative(root, file).split(path.sep)[0];
-  const notice = footerLegal[locale] || footerLegal.en;
-  const section = `<div class="shell footer-legal"><h2>${notice.heading}</h2><p>${notice.text}</p></div>`;
-  html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
+  if (!html.includes('class="footer-legal"')) {
+    const locale = path.relative(root, file).split(path.sep)[0];
+    const notice = footerLegal[locale] || footerLegal.en;
+    const section = `<div class="shell footer-legal"><h2>${notice.heading}</h2><p>${notice.text}</p></div>`;
+    html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
+  }
+  if (!html.includes('name="google-site-verification"')) {
+    html = html.replace('</head>', '  <meta name="google-site-verification" content="l-io4uzFsuhl0rYud79Yvs1fm0TrrT7Y5qHSwEAJjzA">\n</head>');
+  }
   fs.writeFileSync(file, html);
 }
 const urlsToFiles = new Map();
