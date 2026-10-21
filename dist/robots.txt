@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://azerothsurvivors.shop/sitemap.xml
