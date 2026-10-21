@@ -130,7 +130,7 @@ const pages = [
 
 for (const page of pages) {
   const sourceFile = path.join(root, page.source);
-  const original = fs.readFileSync(sourceFile, 'utf8').replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+">/g, '').replace(/<nav class="locale-switch"[\s\S]*?<\/nav>/g, '');
+  const original = fs.readFileSync(sourceFile, 'utf8').replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+">/g, '').replace(/<nav class="locale-switch"[\s\S]*?<\/nav>/g, '').replace(/<details class="language-menu">[\s\S]*?<\/details>/g, '');
   const enPage = addAlternates(addLanguageNav(original.replace(/<html lang="[^"]+">/, '<html lang="en-US">'), locales[0], page.path), page.path, page.locales);
   fs.writeFileSync(sourceFile, enPage);
   for (const locale of locales.slice(1, 4)) {
