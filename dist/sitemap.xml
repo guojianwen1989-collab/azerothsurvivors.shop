@@ -480,4 +480,14 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://azerothsurvivors.shop/zh-cn/guide/fixes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/fixes/"/>
   </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/classes/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/classes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/classes/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/save-transfer/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/save-transfer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/save-transfer/"/>
+  </url>
 </urlset>

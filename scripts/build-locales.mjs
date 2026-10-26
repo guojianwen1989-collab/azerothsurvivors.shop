@@ -6,23 +6,23 @@ const origin = 'https://azerothsurvivors.shop';
 const footerLegal = {
   en: {
     heading: 'About this fan guide',
-    text: 'Azeroth Survivors is a free fan game created by Aethus. This independent guide is not affiliated with or endorsed by Aethus or Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment. We do not host or distribute the game or its files.',
+    text: 'Azeroth Survivors is a free browser fan game created by Aethus and runs on the creator’s website. This independent guide is not affiliated with or endorsed by Aethus or Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment. This site does not host or distribute the game or its files. Artwork on this site is original illustration, not game footage.',
   },
   'de-de': {
     heading: 'Über diesen Fan-Guide',
-    text: 'Azeroth Survivors ist ein kostenloses Fan-Spiel von Aethus. Dieser unabhängige Guide ist weder mit Aethus noch mit Blizzard Entertainment verbunden oder von ihnen unterstützt. World of Warcraft ist eine Marke von Blizzard Entertainment. Wir hosten oder verbreiten weder das Spiel noch seine Dateien.',
+    text: 'Azeroth Survivors ist ein kostenloses Browser-Fan-Spiel von Aethus und läuft auf der Website des Entwicklers. Dieser unabhängige Guide ist weder mit Aethus noch mit Blizzard Entertainment verbunden oder von ihnen unterstützt. World of Warcraft ist eine Marke von Blizzard Entertainment. Wir hosten oder verbreiten weder das Spiel noch seine Dateien. Die Illustrationen auf dieser Website sind Originalillustrationen und kein Gameplay-Material.',
   },
   'fr-fr': {
     heading: 'À propos de ce guide de fans',
-    text: 'Azeroth Survivors est un jeu de fans gratuit créé par Aethus. Ce guide indépendant n’est ni affilié à Aethus ou Blizzard Entertainment, ni approuvé par eux. World of Warcraft est une marque de Blizzard Entertainment. Nous n’hébergeons ni ne distribuons le jeu ou ses fichiers.',
+    text: 'Azeroth Survivors est un jeu de fans gratuit sur navigateur créé par Aethus et hébergé sur le site du créateur. Ce guide indépendant n’est ni affilié à Aethus ou Blizzard Entertainment, ni approuvé par eux. World of Warcraft est une marque de Blizzard Entertainment. Nous n’hébergeons ni ne distribuons le jeu ou ses fichiers. Les illustrations de ce site sont originales et ne sont pas des images du jeu.',
   },
   'ja-jp': {
     heading: 'このファンガイドについて',
-    text: 'Azeroth SurvivorsはAethusが制作した無料のファンゲームです。この独立したガイドはAethusおよびBlizzard Entertainmentとは無関係で、承認も受けていません。World of WarcraftはBlizzard Entertainmentの商標です。当サイトはゲームやそのファイルをホストまたは配布していません。',
+    text: 'Azeroth SurvivorsはAethusが制作し、開発者のウェブサイトで提供される無料のブラウザ向けファンゲームです。この独立ガイドはAethusおよびBlizzard Entertainmentとは無関係で、承認も受けていません。World of WarcraftはBlizzard Entertainmentの商標です。当サイトはゲームやそのファイルをホストまたは配布していません。掲載イラストは独自の挿絵であり、ゲーム画面ではありません。',
   },
   'zh-cn': {
     heading: '关于本粉丝指南',
-    text: 'Azeroth Survivors 是由 Aethus 制作的免费粉丝游戏。本网站是独立攻略指南，与 Aethus 或暴雪娱乐无关联，也未获得其认可。《魔兽世界》是暴雪娱乐的商标。本网站不托管或分发游戏及其文件。',
+    text: 'Azeroth Survivors 是由 Aethus 制作、运行于开发者网站的免费浏览器粉丝游戏。本网站是独立攻略指南，与 Aethus 或暴雪娱乐无关联，也未获得其认可。《魔兽世界》是暴雪娱乐的商标。本网站不托管或分发游戏及其文件。本站插画为原创示意图，并非游戏实机画面。',
   },
 };
 const locales = [
@@ -90,7 +90,7 @@ ${alternates(page)}
   <script type="application/ld+json">${schema}</script>
 </head>`;
   const header = `<header class="site-header locale-header"><div class="shell header-inner"><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><nav class="nav locale-nav" aria-label="Main navigation"><a href="${homeHref}">${t.home}</a><a href="${homeHref}#about">${t.about}</a><a href="${guideHref}">${t.guides}</a><a href="${homeHref}#faq">${t.faq}</a></nav>${languageMenu(locale, page)}<a class="button button-small button-gold" href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></div></header>`;
-  const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><p>${t.disclaimer}</p></div><div><h2>${t.guides}</h2><a href="${guideHref}">${t.guideHeading}</a><a href="https://azerothsurvivors.shop/guide/first-run/">${t.firstTitle} · EN</a><a href="https://azerothsurvivors.shop/guide/fixes/">${t.fixTitle} · EN</a></div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span><span>${t.disclaimer}</span></div></footer>`;
+  const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2><a href="${guideHref}">${t.guideHeading}</a><a href="https://azerothsurvivors.shop/guide/first-run/">${t.firstTitle} · EN</a><a href="https://azerothsurvivors.shop/guide/fixes/">${t.fixTitle} · EN</a></div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
   const body = isGuide
     ? `<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${t.guideHero}</h1><p>${t.guideLead}</p></div></section><section class="section reading-section"><div class="shell section-heading"><div><p class="eyebrow">${t.guideHeading}</p><h2>${t.quickTitle}</h2><p>${t.guideLead}</p></div></div><div class="shell reading-grid"><article class="reading-card"><span>01 / ${t.firstTitle}</span><h3>${t.firstTitle}</h3><p>${t.firstText}</p><p>${t.quick1} ${t.quick2} ${t.quick3}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/first-run/">${t.readGuide} →</a></article><article class="reading-card"><span>02 / ${t.buildTitle}</span><h3>${t.buildTitle}</h3><p>${t.buildText}</p><p>${t.buildTipText}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/progression/">${t.readGuide} →</a></article><article class="reading-card"><span>03 / ${t.fixTitle}</span><h3>${t.fixTitle}</h3><p>${t.fixText}</p><p>${t.quickFixText}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/fixes/">${t.readGuide} →</a></article></div><div class="shell"><p class="locale-note">${t.englishNote}</p></div></section></main>`
     : `<main id="main"><section class="hero"><div class="hero-art" aria-hidden="true"></div><div class="shell hero-content"><p class="eyebrow">${t.kicker} <span class="line"></span></p><h1 id="hero-title">${t.hero}</h1><p class="hero-lede">${t.lead}</p><p class="hero-sub">${t.overviewText}</p><div class="hero-actions"><a class="button button-gold" href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a><a class="button button-outline" href="guide/index.html">${t.explore} →</a></div><p class="hero-note">${t.noAccount}<span>·</span>WebGPU</p></div><div class="shell hero-bottom"><span>AZEROTH SURVIVORS</span><span>${t.kicker}</span></div></section><section id="about" class="section intro-section"><div class="shell"><div class="intro-grid"><div><p class="eyebrow">${t.about}</p><h2>${t.overview}</h2></div><div class="intro-copy"><p>${t.overviewText}</p><a class="text-link" href="guide/index.html">${t.explore} ↗</a></div></div><div class="stat-row"><div><strong>09</strong><span>CLASSES</span></div><div><strong>12</strong><span>GUIDE ZONES</span></div><div><strong>03</strong><span>UPGRADES PER LEVEL</span></div><div><strong>16</strong><span>MIN · ELWYNN FINALE</span></div></div></div></section><section id="guides" class="section reading-section"><div class="shell section-heading"><div><p class="eyebrow">${t.guides}</p><h2>${t.guideHeading}</h2><p>${t.guideLead}</p></div></div><div class="shell reading-grid"><a class="reading-card" href="guide/index.html"><span>01 / ${t.firstTitle}</span><h3>${t.firstTitle}</h3><p>${t.firstText}</p><b>${t.explore} →</b></a><a class="reading-card" href="guide/index.html"><span>02 / ${t.buildTitle}</span><h3>${t.buildTitle}</h3><p>${t.buildText}</p><b>${t.explore} →</b></a><a class="reading-card" href="guide/index.html"><span>03 / ${t.fixTitle}</span><h3>${t.fixTitle}</h3><p>${t.fixText}</p><b>${t.explore} →</b></a></div></section><section class="section how-section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${t.quickTitle}</p><h2>${t.hero}</h2></div></div><div class="steps"><article><span>01</span><h3>${t.firstTitle}</h3><p>${t.quick1}</p></article><article><span>02</span><h3>${t.about}</h3><p>${t.quick2}</p></article><article><span>03</span><h3>${t.guides}</h3><p>${t.quick3}</p></article><article><span>04</span><h3>${t.faq}</h3><p>${t.quick4}</p></article></div></div></section><section id="faq" class="section faq-section"><div class="shell faq-grid"><div><p class="eyebrow">${t.faq}</p><h2>${t.faqTitle}</h2><p>${t.guideLead}</p></div><div class="faq-list"><details><summary>${t.q1}</summary><p>${t.a1}</p></details><details><summary>${t.q2}</summary><p>${t.a2}</p></details><details><summary>${t.q3}</summary><p>${t.a3}</p></details><details><summary>${t.q4}</summary><p>${t.a4}</p></details></div></div></section></main>`;
@@ -117,14 +117,14 @@ function localizedArticle(locale, page) {
     body = `${part('build', t.buildTitle, `${t.buildText} ${t.buildTipText}`)}${part('adapt', t.quickTitle, `${t.buildTipText} ${t.quick4}`)}<section id="zones"><p class="eyebrow">${t.guideKicker}</p><h2>${t.zoneTip}</h2><p>${t.zoneTipText}</p><ol><li>Elwynn Forest</li><li>Duskwood</li><li>Warsong Gulch</li><li>Un'Goro Crater</li><li>Arathi Basin</li><li>Feralas</li><li>Gurubashi Arena</li><li>Scarlet Monastery</li><li>Alterac Valley</li><li>Blackrock Mountain</li><li>Gates of Ahn'Qiraj</li><li>Naxxramas</li></ol></section>${part('save', t.faqTitle, t.a3)}`;
   } else {
     toc = [[t.quickFix, 'browser'], [t.fixTitle, 'performance'], [t.faqTitle, 'save'], [t.play, 'download']];
-    body = `${part('browser', t.quickFix, `${t.quickFixText} ${t.a4}`)}${part('performance', t.fixTitle, t.fixText)}${part('save', t.faqTitle, `${t.a3} ${t.disclaimer}`)}<section id="download"><p class="eyebrow">${t.guideKicker}</p><h2>${t.play}</h2><p>${t.disclaimer}</p><a href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></section>`;
+    body = `${part('browser', t.quickFix, `${t.quickFixText} ${t.a4}`)}${part('performance', t.fixTitle, t.fixText)}${part('save', t.faqTitle, `${t.a3}`)}<section id="download"><p class="eyebrow">${t.guideKicker}</p><h2>${t.play}</h2><p>Azeroth Survivors · ${t.guides}</p><a href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></section>`;
   }
   const tocHtml = toc.map(([label, id]) => `<a href="#${id}">${label}</a>`).join('');
   const homeHref = '../../index.html';
   const guideHref = '../index.html';
   const head = `<!doctype html><html lang="${locale.code}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}/assets/hero.webp"><meta property="og:locale" content="${locale.code.replace('-', '_')}"><meta name="theme-color" content="#101915"><link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../../assets/style.css">${alternates(page)}<script type="application/ld+json">${schema}</script></head>`;
   const header = `<header class="site-header locale-header"><div class="shell header-inner"><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><nav class="nav locale-nav" aria-label="Main navigation"><a href="${homeHref}">${t.home}</a><a href="${homeHref}#about">${t.about}</a><a href="${guideHref}">${t.guides}</a><a href="${homeHref}#faq">${t.faq}</a></nav>${languageMenu(locale, page)}<a class="button button-small button-gold" href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></div></header>`;
-  const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><p>${t.disclaimer}</p></div><div><h2>${t.guides}</h2><a href="${guideHref}">${t.guideHeading}</a><a href="https://azerothsurvivors.shop/${page}">${t.readGuide} · EN</a></div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span><span>${t.disclaimer}</span></div></footer>`;
+  const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2><a href="${guideHref}">${t.guideHeading}</a><a href="https://azerothsurvivors.shop/${page}">${t.readGuide} · EN</a></div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
   return `${head}<body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${esc(title)}</h1><p>${esc(description)}</p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="${t.guides}"><h2>${t.quickTitle}</h2>${tocHtml}</nav><article class="guide-content">${body}<section class="sources"><p>${t.englishNote}</p><a class="text-link" href="https://azerothsurvivors.shop/${page}">${t.readGuide} →</a></section></article></div></main>${footer}</body></html>`;
 }
 
@@ -178,15 +178,19 @@ for (const locale of locales.slice(4)) {
   for (const page of ['', 'guide/', 'guide/first-run/', 'guide/progression/', 'guide/fixes/']) {
     const out = path.join(root, locale.slug, page, 'index.html');
     fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, page.startsWith('guide/') && page !== 'guide/' ? localizedArticle(locale, page) : localizedPage(locale, page));
+    let html = page.startsWith('guide/') && page !== 'guide/' ? localizedArticle(locale, page) : localizedPage(locale, page);
+    if (page === '') html = html.replace('</main>', `<section class="section reading-section"><div class="shell section-heading"><div><p class="eyebrow">${translations[locale.slug].guides}</p><h2>More English guides</h2><p>${translations[locale.slug].englishNote}</p></div></div><div class="shell reading-grid"><a class="reading-card" href="/classes/"><span>CLASS GUIDE · EN</span><h3>Compare all nine classes</h3><p>Reported play styles, trade-offs, and beginner considerations.</p><b>Explore class choices →</b></a><a class="reading-card" href="/guide/save-transfer/"><span>SAVE GUIDE · EN</span><h3>Back up or move a save</h3><p>Export and import steps with a warning before overwriting destination progress.</p><b>Read the save guide →</b></a></div></section></main>`);
+    fs.writeFileSync(out, html);
   }
 }
 
 const sitemapRows = [];
+const additionalSitemapPages = ['classes/', 'guide/save-transfer/'];
 for (const page of pages) {
   const subset = page.locales;
   for (const locale of subset) sitemapRows.push({ url: route(locale, page.path), page: page.path, alternates: subset });
 }
+for (const page of additionalSitemapPages) sitemapRows.push({ url: `${origin}/${page}`, page, alternates: [locales[0]] });
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapRows.map(row => `  <url>\n    <loc>${row.url}</loc>\n${[...row.alternates.map(locale => `    <xhtml:link rel="alternate" hreflang="${locale.code}" href="${route(locale, row.page)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${route(locales[0], row.page)}"/>`].join('\n')}\n  </url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap);
 
@@ -209,12 +213,12 @@ const adCopy = {
 };
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
-  if (!html.includes('class="footer-legal"')) {
-    const locale = path.relative(root, file).split(path.sep)[0];
-    const notice = footerLegal[locale] || footerLegal.en;
-    const section = `<div class="shell footer-legal"><h2>${notice.heading}</h2><p>${notice.text}</p></div>`;
-    html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
-  }
+  html = html.replace(/<div class="shell footer-legal">[\s\S]*?<\/div>/g, '');
+  const locale = path.relative(root, file).split(path.sep)[0];
+  const notice = footerLegal[locale] || footerLegal.en;
+  const legalSection = `<div class="shell footer-legal"><h2>${notice.heading}</h2><p>${notice.text}</p></div>`;
+  html = html.replace(/(<div class="shell footer-bottom"><span>[^<]*<\/span>)<span>[^<]*<\/span>/, '$1');
+  html = html.replace('<div class="shell footer-bottom">', `${legalSection}<div class="shell footer-bottom">`);
   if (!html.includes('name="google-site-verification"')) {
     html = html.replace('</head>', '  <meta name="google-site-verification" content="l-io4uzFsuhl0rYud79Yvs1fm0TrrT7Y5qHSwEAJjzA">\n</head>');
   }
@@ -234,6 +238,7 @@ for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
   if (!canonical || !/<title>[^<]+<\/title>/i.test(html) || !/<meta name="description" content="[^"]+"/i.test(html) || !/<h1\b[\s\S]*?<\/h1>/i.test(html)) throw new Error(`Missing SEO metadata or H1: ${path.relative(root, file)}`);
+  if ((html.match(/class="shell footer-legal"/g) || []).length !== 1) throw new Error(`Expected one fan guide disclosure: ${path.relative(root, file)}`);
   if (urlsToFiles.has(canonical)) throw new Error(`Duplicate canonical URL: ${canonical}`);
   urlsToFiles.set(canonical, file);
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
