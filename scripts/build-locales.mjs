@@ -204,6 +204,7 @@ function collectHtml(folder) {
 }
 collectHtml(root);
 const adLink = 'https://araplhn.org/4/b04d973c362261149ebfae2e088bd3bf';
+const adsense = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3292171179082273" crossorigin="anonymous"></script>';
 const adCopy = {
   en: ['Sponsored link', 'View offer ↗'],
   de: ['Gesponserter Link', 'Angebot ansehen ↗'],
@@ -231,6 +232,7 @@ for (const file of htmlFiles) {
   const [label, linkText] = adCopy[language] || adCopy.en;
   const section = `<div class="shell footer-ad"><span>${label}</span><a href="${adLink}" target="_blank" rel="sponsored nofollow noopener noreferrer">${linkText}</a></div>`;
   html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
+  if (!html.includes('client=ca-pub-3292171179082273')) html = html.replace('</head>', '  ' + adsense + '\n</head>');
   fs.writeFileSync(file, html);
 }
 const urlsToFiles = new Map();
@@ -239,6 +241,7 @@ for (const file of htmlFiles) {
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
   if (!canonical || !/<title>[^<]+<\/title>/i.test(html) || !/<meta name="description" content="[^"]+"/i.test(html) || !/<h1\b[\s\S]*?<\/h1>/i.test(html)) throw new Error(`Missing SEO metadata or H1: ${path.relative(root, file)}`);
   if ((html.match(/class="shell footer-legal"/g) || []).length !== 1) throw new Error(`Expected one fan guide disclosure: ${path.relative(root, file)}`);
+  if (html.split('client=ca-pub-3292171179082273').length - 1 !== 1) throw new Error(`Expected one AdSense loader: ${path.relative(root, file)}`);
   if (urlsToFiles.has(canonical)) throw new Error(`Duplicate canonical URL: ${canonical}`);
   urlsToFiles.set(canonical, file);
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
