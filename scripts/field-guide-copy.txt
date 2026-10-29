@@ -1,15 +1,15 @@
 首页 / — 整改
 标题 / Meta / H1
-Title：Azeroth Survivors — Independent Field Guide, Builds & First-Run Help
+Title：Azeroth Survivors Guide: Classes, Builds & How to Play
 
-Meta Description：Azeroth Survivors is a free browser roguelike by Aethus. Independent, unofficial guides for first-run setup, class builds, tier list, fixes and safety checks.
+Meta Description：Azeroth Survivors guide with a class finder, first-run steps, builds, browser fixes and save tips. Compare classes here, then play on Aethus's official site.
 
-H1：Azeroth Survivors: the field guide that tells you what to actually do
+H1：Azeroth Survivors: classes, builds and first-run guide
 
 首屏正文（直接放 H1 下方）
-Azeroth Survivors is a free, fan-made browser roguelike by Aethus. You pick a class and a zone, your spells fire automatically, and every level-up deals you three cards. Each run runs about 16 minutes, ends with a scheduled boss, and needs nothing more than a WebGPU-capable desktop browser — no account, no launcher, no WoW client.
+Azeroth Survivors is a free, fan-made browser roguelike by Aethus. Choose a class, move through enemy waves and shape your build with level-up cards while abilities attack automatically. Start here to compare classes, plan your opening upgrades and check browser requirements before playing.
 
-This site is an independent, unofficial field guide. We don't host game files, mirrors, or modified executables. We explain how to start, how each class actually plays, what the meta looks like right now, and how to avoid the fake-site problem that has followed this game since launch.
+This site is an independent, unofficial field guide. Use the class finder below and read the practical starting advice on this page. The actual game opens on Aethus's website; we do not host game files, mirrors or modified executables.
 
 首屏下方放 4 个卡片链接（文字直接用）：
 

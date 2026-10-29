@@ -13,3 +13,5 @@ The supplied English editorial copy lives in `scripts/field-guide-copy.txt`. `sc
 For a local preview, run a static HTTP server from `dist/`, for example `python -m http.server 4173` if Python is installed, then visit `http://localhost:4173/`.
 
 The site is an independent fan guide. Its two illustrations are original generated artwork and are labeled as illustrations, not gameplay screenshots.
+
+Homepage body copy is maintained in `scripts/homepage-content.html`; its Title, description, H1 and intro are in the opening section of `scripts/field-guide-copy.txt`. The class finder filters static recommendations locally, with all approaches readable before interaction or without JavaScript. Run `node scripts/check-homepage.mjs` after generating pages to check homepage SEO and the finder behavior.

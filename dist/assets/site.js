@@ -36,3 +36,20 @@ document.querySelectorAll('.play-trigger').forEach(button => button.addEventList
 }));
 dialog?.querySelectorAll('.dialog-close, .dialog-stay').forEach(button => button.addEventListener('click', () => dialog.close()));
 dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+const classFinder = document.querySelector('#class-finder-form');
+if (classFinder) {
+  const picks = [...document.querySelectorAll('.class-pick')];
+  const status = document.querySelector('#class-finder-status');
+  classFinder.addEventListener('submit', event => {
+    event.preventDefault();
+    const goal = classFinder.elements.goal.value;
+    const selected = picks.find(pick => pick.dataset.goal === goal);
+    picks.forEach(pick => { pick.hidden = pick !== selected; });
+    status.textContent = `Recommended approach: ${selected.querySelector('h3').textContent}. Read the advice below, or compare all approaches.`;
+  });
+  classFinder.addEventListener('reset', () => {
+    picks.forEach(pick => { pick.hidden = false; });
+    status.textContent = 'All three approaches are shown below. Choose a goal to focus the comparison.';
+  });
+}

@@ -44,7 +44,7 @@ export function buildFieldGuide(root) {
     const html = `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><meta property="og:type" content="${route === '/' ? 'website' : 'article'}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}/assets/hero.webp"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${origin}/assets/hero.webp"><meta name="theme-color" content="#101915"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/style.css"><script defer src="/assets/site.js"></script><script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type': route === '/' ? 'WebSite' : 'Article', inLanguage:'en-US', headline:h1, name:title, description, url, dateModified:'2026-10-29', mainEntityOfPage:url, publisher:{'@type':'Organization', name:'Azeroth Survivors Guide'}})}</script>${tracking}</head><body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main" class="field-guide"><section class="guide-hero"><div class="shell"><p class="eyebrow">INDEPENDENT · UNOFFICIAL FIELD GUIDE</p><h1>${esc(h1)}</h1><p class="updated">Last updated: <time datetime="2026-10-29">October 29, 2026</time></p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="Guide topics"><h2>Field guide</h2>${[['What is Azeroth Survivors?', '/guide/what-is-azeroth-survivors/'], ['How to play', '/guide/how-to-play/'], builds, tiers, download, safety, talents, luck].map(([label, href]) => `<a href="${href}"${href === route ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav><article class="guide-content">${body}</article></div></main>${footer}</body></html>`;
     const file = path.join(root, route, 'index.html');
     fs.mkdirSync(path.dirname(file), {recursive:true});
-    const output = route === '/' ? html.replace('class="field-guide"', 'class="field-guide field-guide-home"').replace(`<h1>${esc(h1)}</h1>`, `<h1>${esc(h1)}</h1><div class="home-intro">${intro}</div>`) : html;
+    const output = route === '/' ? html.replace('class="field-guide"', 'class="field-guide field-guide-home"').replace(`<h1>${esc(h1)}</h1>`, `<h1>${esc(h1)}</h1><div class="home-intro">${intro}</div>`).replace('src="/assets/site.js"', 'src="/assets/site.js?v=20261029-home"') : html;
     fs.writeFileSync(file, output.replace('<body>', '<body class="field-guide-page">'));
     // Finish and check each page before creating the next one.
     const saved = fs.readFileSync(file, 'utf8');
@@ -61,15 +61,8 @@ export function buildFieldGuide(root) {
     return [tail.match(/^Title：([^\n]+)/)[1], tail.match(/Meta Description：([^\n]+)/)[1], tail.match(/H1：([^\n]+)/)[1]];
   }
 
-  add('/', metadata('Azeroth Survivors — Independent'), p('Azeroth Survivors is a free, fan-made browser roguelike by Aethus.') + p('This site is an independent, unofficial field guide.'), [
-    section('Choose your next step', `<div class="reading-grid">${[
-      ['Start here — what the game is and how to get into your first run', '/guide/what-is-azeroth-survivors/'],
-      ['Builds — the three-phase rule and every class page', '/guide/builds/'],
-      ['Tier list — which class to pick for your first clear', '/guide/tier-list/'],
-      ['Download & fixes — browser, Windows, black screen, slow load', '/guide/download/'],
-    ].map(([label, href]) => `<a class="reading-card" href="${href}"><h3>${label}</h3><b>Read guide →</b></a>`).join('')}</div>`),
-    section('First 10 minutes', p('Load the game in Chrome or Edge.')),
-    section('Before you download', p('Before you download anything, read the safety page.') + links([safety]) + text('Source note: the supplied scan claim has no dated report attached; see the safety page for the evidence limit.')),
+  add('/', metadata('Azeroth Survivors Guide: Classes'), p('Azeroth Survivors is a free, fan-made browser roguelike by Aethus.') + p('This site is an independent, unofficial field guide.'), [
+    fs.readFileSync(new URL('./homepage-content.html', import.meta.url), 'utf8'),
   ]);
   add('/guide/what-is-azeroth-survivors/', metadata('What Is Azeroth Survivors?'), p('Azeroth Survivors is a free, fan-made browser roguelike created by Aethus.'), [
     section('Quick facts', table(['Fact', 'Details'], [['Developer','Aethus'],['Price','Free'],['Platform','Browser (WebGPU) / Windows build'],['Account required','No'],['Run length','~16 min'],['Classes','9']])),
