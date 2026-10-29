@@ -490,4 +490,139 @@
     <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/save-transfer/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/save-transfer/"/>
   </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/what-is-azeroth-survivors/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/what-is-azeroth-survivors/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/what-is-azeroth-survivors/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/how-to-play/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/how-to-play/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/how-to-play/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/download/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/is-it-safe/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/is-it-safe/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/is-it-safe/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/tier-list/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/tier-list/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/tier-list/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/warrior/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/warrior/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/warrior/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/paladin/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/paladin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/paladin/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/hunter/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/hunter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/hunter/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/warlock/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/warlock/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/warlock/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/mage/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/mage/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/mage/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/rogue/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/rogue/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/rogue/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/priest/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/priest/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/priest/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/shaman/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/shaman/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/shaman/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/druid/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/druid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/druid/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/luck/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/luck/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/luck/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/save-file/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/save-file/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/save-file/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/damage-meter/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/damage-meter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/damage-meter/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/talent-tree/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/talent-tree/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/talent-tree/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/reddit/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/reddit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/reddit/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/discord/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/discord/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/discord/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/about/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/editorial-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/editorial-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/editorial-policy/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/contact/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/privacy/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/terms/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/official-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/official-website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/official-website/"/>
+  </url>
 </urlset>

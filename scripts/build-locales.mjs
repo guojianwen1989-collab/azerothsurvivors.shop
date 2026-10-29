@@ -1,7 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildFieldGuide, trustLinks } from './build-field-guide.mjs';
 
 const root = path.resolve('dist');
+const fieldGuideRoutes = buildFieldGuide(root);
+const libraryFile = path.join(root, 'guide/index.html');
+let library = fs.readFileSync(libraryFile, 'utf8').replace(/<!-- field-guide-library:start -->[\s\S]*?<!-- field-guide-library:end -->/g, '');
+const libraryLinks = fieldGuideRoutes.filter(route => route.startsWith('guide/')).map(route => {
+  const html = fs.readFileSync(path.join(root, route, 'index.html'), 'utf8');
+  return `<li><a href="/${route}">${html.match(/<h1>([^<]+)<\/h1>/)[1]}</a></li>`;
+}).join('');
+library = library.replace('</main>', `<!-- field-guide-library:start --><section class="shell section guide-content"><h2>Field guide topics and class builds</h2><ul>${libraryLinks}</ul></section><!-- field-guide-library:end --></main>`);
+fs.writeFileSync(libraryFile, library);
 const origin = 'https://azerothsurvivors.shop';
 const footerLegal = {
   en: {
@@ -165,7 +175,7 @@ for (const page of pages) {
     const depth = page.path.split('/').filter(Boolean).length;
     const sourceAssets = `${'../'.repeat(depth)}assets/`;
     const copiedAssets = `${'../'.repeat(depth + 1)}assets/`;
-    html = html.replaceAll(sourceAssets, copiedAssets);
+    html = html.replaceAll(`="${sourceAssets}`, `="${copiedAssets}`);
     html = html.replace(/<title>(.*?)<\/title>/, `<title>$1 | ${countryNames[locale.country]}</title>`);
     html = html.replace(/<meta name="description" content="([^"]*)">/, `<meta name="description" content="$1 ${countryNames[locale.country]} edition.">`);
     html = addAlternates(addLanguageNav(html, locale, page.path), page.path, page.locales);
@@ -185,7 +195,7 @@ for (const locale of locales.slice(4)) {
 }
 
 const sitemapRows = [];
-const additionalSitemapPages = ['classes/', 'guide/save-transfer/'];
+const additionalSitemapPages = ['classes/', 'guide/save-transfer/', ...fieldGuideRoutes.filter(Boolean)];
 for (const page of pages) {
   const subset = page.locales;
   for (const locale of subset) sitemapRows.push({ url: route(locale, page.path), page: page.path, alternates: subset });
@@ -215,6 +225,8 @@ const adCopy = {
 };
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
+  html = html.replace(/<nav class="shell footer-trust"[\s\S]*?<\/nav>/g, '');
+  html = html.replace('<div class="shell footer-bottom">', trustLinks + '<div class="shell footer-bottom">');
   html = html.replace(/<div class="shell footer-legal">[\s\S]*?<\/div>/g, '');
   const locale = path.relative(root, file).split(path.sep)[0];
   const notice = footerLegal[locale] || footerLegal.en;
@@ -244,6 +256,7 @@ for (const file of htmlFiles) {
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
   if (!canonical || !/<title>[^<]+<\/title>/i.test(html) || !/<meta name="description" content="[^"]+"/i.test(html) || !/<h1\b[\s\S]*?<\/h1>/i.test(html)) throw new Error(`Missing SEO metadata or H1: ${path.relative(root, file)}`);
   if ((html.match(/class="shell footer-legal"/g) || []).length !== 1) throw new Error(`Expected one fan guide disclosure: ${path.relative(root, file)}`);
+  if ((html.match(/class="shell footer-trust"/g) || []).length !== 1) throw new Error(`Expected one trust navigation: ${path.relative(root, file)}`);
   if (html.split('client=ca-pub-3292171179082273').length - 1 !== 1) throw new Error(`Expected one AdSense loader: ${path.relative(root, file)}`);
   if (html.split('https://bauval.org/21/8c4d536502ccd29d9ac601dfe65b98fd').length - 1 !== 1 || html.split('id="container-8c4d536502ccd29d9ac601dfe65b98fd"').length - 1 !== 1) throw new Error(`Expected one Bauval ad unit: ${path.relative(root, file)}`);
   if (urlsToFiles.has(canonical)) throw new Error(`Duplicate canonical URL: ${canonical}`);

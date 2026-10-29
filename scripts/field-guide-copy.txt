@@ -1,0 +1,436 @@
+首页 / — 整改
+标题 / Meta / H1
+Title：Azeroth Survivors — Independent Field Guide, Builds & First-Run Help
+
+Meta Description：Azeroth Survivors is a free browser roguelike by Aethus. Independent, unofficial guides for first-run setup, class builds, tier list, fixes and safety checks.
+
+H1：Azeroth Survivors: the field guide that tells you what to actually do
+
+首屏正文（直接放 H1 下方）
+Azeroth Survivors is a free, fan-made browser roguelike by Aethus. You pick a class and a zone, your spells fire automatically, and every level-up deals you three cards. Each run runs about 16 minutes, ends with a scheduled boss, and needs nothing more than a WebGPU-capable desktop browser — no account, no launcher, no WoW client.
+
+This site is an independent, unofficial field guide. We don't host game files, mirrors, or modified executables. We explain how to start, how each class actually plays, what the meta looks like right now, and how to avoid the fake-site problem that has followed this game since launch.
+
+首屏下方放 4 个卡片链接（文字直接用）：
+
+Start here — what the game is and how to get into your first run → /guide/what-is-azeroth-survivors/
+
+Builds — the three-phase rule and every class page → /guide/builds/
+
+Tier list — which class to pick for your first clear → /guide/tier-list/
+
+Download & fixes — browser, Windows, black screen, slow load → /guide/download/
+
+加一个 First 10 minutes 模块，文案：
+
+Load the game in Chrome or Edge. Wait for the full resource pull — first load is slow on purpose, the whole world is being cached locally. Click inside the canvas so keyboard input reaches the game. Read your class's starting ability, then start moving. Your job in the first three minutes is wave-clear, not damage. Take every area spell the draft offers: Blizzard, Volley, Consecration, Rain of Fire, Chain Lightning. Your first boss arrives around 2:15, and a single-target start without an area tool will not have the spawn curve under control by then.[reference:0]
+
+底部加一行安全短模块，文案：
+
+Before you download anything, read the safety page. The game's maintained entry point is Aethus's own site; the domain has passed Cloudflare scanning with no malicious finding, but fan mirrors and lookalike domains have been flagged for recent registration and third-party ad links. We explain exactly how to tell them apart.
+
+链接：/guide/is-it-safe/
+
+页脚必须加：About · Editorial policy · Contact · Privacy · Terms · Sitemap。全站页脚都加，不单独建关键词。
+
+/guide/what-is-azeroth-survivors/ — 主关键词：what is azeroth survivors
+标题 / Meta / H1
+Title：What Is Azeroth Survivors? Free Browser Roguelike Explained
+
+Meta Description：What Azeroth Survivors is: a free, fan-made WoW-style browser roguelike by Aethus. WebGPU requirement, 9 classes, 16-minute runs, no account needed.
+
+H1：What is Azeroth Survivors?
+
+正文
+第一段（直接回答）：
+
+Azeroth Survivors is a free, fan-made browser roguelike created by Aethus. It uses World of Warcraft's classes, zones and spell names, but it is not a Blizzard product and not connected to the WoW client. You open it in a WebGPU-capable browser, pick a race and a class, and survive a roughly 16-minute zone run where your abilities cast themselves and your only inputs are movement and level-up card choices.[reference:1]
+
+第二段（它不是什么）：
+
+It is not a private server, not a WoW addon, and not a download-and-install MMO. The whole run happens locally in your browser; there is no account system and no persistent online character. Two CurseForge addons with similar names run inside WoW Forever and are different games — do not confuse them with this browser roguelike.[reference:2]
+
+第三段（核心循环）：
+
+The loop is survivors-like: enemies spawn in waves, your spells fire automatically, and every level-up deals three cards — a new spell, a rank-up, or a passive. Cards are color-coded by estimated damage, but color is a hint, not a guarantee. You can reroll the hand with R. Between runs, you keep boss gear, collection progress and a 51-point talent tree that can be reset.[reference:3]
+
+第四段（门槛）：
+
+The real requirement is WebGPU. Chrome and Edge are the safe starting point; Safari works on 26 and above. It is a keyboard-and-mouse game — mobile is not a supported target. First load pulls the whole world into the browser, so a slow first load is expected; repeated reloading makes it worse.[reference:4][reference:5]
+
+必须加的板块：
+
+Quick facts 表格：Developer Aethus · Price Free · Platform Browser (WebGPU) / Windows build · Account required No · Run length ~16 min · Classes 9.
+
+What it is not 小节（上面第二段）。
+
+Related guides 模块：How to play → /guide/how-to-play/ · Download & fixes → /guide/download/ · Tier list → /guide/tier-list/.
+
+Last updated 日期。
+
+/guide/how-to-play/ — 主关键词：how to play azeroth survivors
+标题 / Meta / H1
+Title：How to Play Azeroth Survivors — First Run Walkthrough
+
+Meta Description：Step-by-step first run for Azeroth Survivors: browser setup, class choice, the 0–3 / 3–8 / 8–15 minute rule, reroll timing and the first boss.
+
+H1：How to play Azeroth Survivors
+
+正文（分步骤，文案直接可用）
+Step 1 — Open the maintained entry point.
+
+Go to Aethus's own site. Use a current Chrome or Edge on a desktop or laptop. If the loader says your browser has no WebGPU, update the browser first, then enable hardware/GPU acceleration. Click inside the game canvas before you try any key; without focus, keyboard input will not register.[reference:6]
+
+Step 2 — Pick a class, not a "best" class.
+
+For a first clear, Warrior or Paladin. Warrior has the largest health pool and a Whirlwind capstone that turns into blender mode; Paladin brings Consecration, shields, self-heal and a once-per-90-second death save. Both forgive positioning mistakes while your talent rows are still locked. Hunter, Warlock and Mage have higher power ceilings, but they ask you to know enemy movement before they pay off.[reference:7]
+
+Step 3 — Minutes 0–3: take wave-clear only.
+
+Your first six levels are about turning the spawn curve into experience. Take area spells — Blizzard, Volley, Consecration, Rain of Fire, Chain Lightning. If you started a single-target class, your first area tool has to be online before the first boss at around 2:15.[reference:8]
+
+Step 4 — Minutes 3–8: commit to one carry.
+
+Push your best area spell toward rank 8 and add exactly one survival tool — a slow, a stun, or a movement passive. The mobility spell lands around this window. Spend your three rerolls here, in the level 6–12 range, because a bad hand at this point costs the most tempo.[reference:9]
+
+Step 5 — Minutes 8–15: rank-ups only.
+
+Your slots are full. Every card is now a stat line: damage % on the carry first, cooldown % second, survival last. Bosses resist control at this stage — burst windows beat CC chains.[reference:10]
+
+Step 6 — Between runs.
+
+Check Collection, Armory and Talents before you queue again. Boss gear is permanent for that class, and the armory is where you see what your class can actually find.[reference:11]
+
+必须加的板块：
+
+一个 First-run checklist 无序列表，把上面 6 步压成可勾选条目。
+
+Common first-run mistakes：reloading during first load / playing on a laptop trackpad without clicking the canvas / taking single-target cards before an area tool / spending rerolls in the first three levels.
+
+Related：What is Azeroth Survivors → /guide/what-is-azeroth-survivors/ · Builds → /guide/builds/ · Tier list → /guide/tier-list/.
+
+/guide/download/ — 主关键词：azeroth survivors download
+标题 / Meta / H1
+Title：Azeroth Survivors Download — Browser, Windows & Fixes
+
+Meta Description：How to get Azeroth Survivors: browser play via WebGPU, Windows build, and fixes for slow first load, black screen and no-WebGPU warnings. No mirrors hosted here.
+
+H1：Azeroth Survivors download and first-run fixes
+
+正文
+浏览器版本：
+
+The maintained way to play is the browser build on Aethus's own site. You need Chrome or Edge on desktop, WebGPU enabled, and patience on first load. The game caches the world locally, so the first pull is the slow one; after that, repeat opens are faster. If the loader reports no WebGPU, update the browser and check that hardware acceleration is on — do not download a "fix" from a third-party site for this.[reference:12]
+
+Windows 版本：
+
+A Windows build exists for players who would rather not keep a browser tab pinned. It is distributed through the developer's own channels. Treat any.rarnamed after the game on a third-party domain as unverified: the filename pattern has been circulated by mirror and aggregator sites, not by the developer. We do not link to or host it.
+
+黑屏 / 卡加载：
+
+Black screen at launch is almost always a WebGPU or focus problem, not a corrupted install. Close other GPU-heavy tabs, confirm hardware acceleration, reload once, click inside the canvas after the loader finishes. If the screen stays black after the loader clears, switch from Chrome to Edge or vice versa before you try anything more drastic.
+
+慢下载：
+
+The first resource pull is the largest. A slow first load is not a symptom of a bad download; repeated reloading restarts the cache and makes it slower. Leave the tab open until the in-game prompt appears.
+
+必须加的板块：
+
+顶部放一个 Before you download 方框：We do not host game files, mirrors, modified executables, trainers or "unlock all" saves. Official entry point only; see the safety page for how to spot lookalikes. 链接到 /guide/is-it-safe/。
+
+Fixes 小节用上面三段黑屏 / 慢加载 / WebGPU 的内容。
+
+Related：Safety check → /guide/is-it-safe/ · What is it → /guide/what-is-azeroth-survivors/.
+
+/guide/is-it-safe/ — 主关键词：is azeroth survivors safe
+标题 / Meta / H1
+Title：Is Azeroth Survivors Safe? Official Site, Mirrors & Fake Domains
+
+Meta Description：Azeroth Survivors safety explained: Cloudflare scan result for the official site, why fan mirrors get flagged, and a pre-download checklist. No absolute guarantees, just what the evidence shows.
+
+H1：Is Azeroth Survivors safe to download?
+
+正文
+直接回答：
+
+The official entry point — Aethus's own domain — has passed Cloudflare Radar scanning with no malicious-content finding. That is a point-in-time technical result, not a lifetime guarantee. The honest answer is: safe from the official source is the supported path; safe from a random mirror is not something anyone can promise you.
+
+为什么第三方站会被标记：
+
+Independent fan sites around this game have been reviewed as "low risk but not safe" for two structural reasons, not for malware: the domain is very new, and the page carries third-party advertising and sponsored outbound links. The scanner found no phishing, no payment fraud and no malicious payload — but a 13-day-old domain with ad slots cannot be rated the same way as a long-standing official site.[reference:14]
+
+假站识别清单（直接列表）：
+
+The page offers a.rardownload instead of sending you to the developer's site or an official build.
+
+The domain is a near-miss of the game name — extra hyphen, plural,.orgor.shopinstead of the real one.
+
+The site embeds a different browser game on the same page to keep you there.
+
+It asks for payment, account credentials or a "verification" download before play.
+
+It redirects you away from the developer's domain when you click Play.
+
+下载前检查清单（直接列表）：
+
+Confirm the domain matches the entry point you already know.
+
+Do not enter personal or payment details on a fan page.
+
+Verify any sponsored outbound link before downloading from it.
+
+If you already have progress, note that switching domains can wipe local save data — this is a known consequence of moving between mirrors and the official site.
+
+必须加的板块：
+
+顶部 Short answer 方框，把第一段放进去。
+
+What the scan actually checked 小节，引用 Cloudflare 扫描维度（恶意内容检测 / 证书 / HSTS），但不夸大。
+
+Related：Download page → /guide/download/ · Official entry point → /guide/official-website/.
+
+/guide/builds/ — 主关键词：azeroth survivors builds
+标题 / Meta / H1
+Title：Azeroth Survivors Builds — The Three-Phase Rule & Class Picks
+
+Meta Description：Azeroth Survivors build guide: the 0–3 / 3–8 / 8–15 minute rule, passive priority order, reroll timing and where to go for each class.
+
+H1：Azeroth Survivors builds: the rule that actually decides runs
+
+正文
+核心规则（第一段直接放）：
+
+Every level-up deals three cards. What you take in which order decides the run, not which class you picked. The working rule is simple: minutes 0–3 take wave-clear, minutes 3–8 commit to one carry spell plus one survival tool, after minute 8 take rank-ups only.[reference:15]
+
+被动优先级（做成有序列表，直接可用）：
+
+1. Blessing of Might — +10% all damage per rank, +50% at rank 5. It helps every build; take it first.[reference:16]
+2. Arcane Intellect — 8% faster recharge per rank, 40% at rank 5, total capped at 65%.[reference:17]
+3. Amplify Magic — +10% area size per rank, +50% at rank 5. Huge for Flamestrike, Consecration, Volley.[reference:18]
+4. Blessing of Wisdom — +8% experience per rank, +40% at rank 5. Take it early or not at all.[reference:19]
+5. Power Word: Fortitude — +20% max health per rank, +100% at rank 5. Buffer on squishier classes.[reference:20]
+
+属性上限（三个短段，直接可用）：
+
+Armor caps at 60%. Once the panel shows 60% reduction, flat Armor stops helping; switch to max health, dodge, shield or regen.[reference:21]
+
+Crit past 100% is not wasted — overflow converts into bonus critical damage.[reference:22]
+
+Echo past 100% rolls a third strike: the first 100% guarantees a second cast on every spell, and the overflow rolls for the third.[reference:23]
+
+职业分流卡片（每张卡 2 行，链接到职业页）：
+
+Warrior — largest health pool, Whirlwind capstone, most forgiving melee. → /guide/builds/warrior/
+
+Paladin — Consecration, shields, self-heal, 90-second death save. Easiest first clear. → /guide/builds/paladin/
+
+Hunter — ranged safety, free pet damage, Explosive Trap / Beast Mastery as the S-tier shell. → /guide/builds/hunter/
+
+Warlock — DoTs that corpse-hop, demon pets, self-healing; snowballs once talents come online. Soul Link / Drain Soul. → /guide/builds/warlock/
+
+Mage — fastest screen-clear, three strong capstones, no pets to hide behind. Frostbite / Shatter. → /guide/builds/mage/
+
+Rogue — boss-melting burst, lowest mistake tolerance. → /guide/builds/rogue/
+
+其余 Priest / Shaman / Druid 同样各给一张卡，全部链接到独立职业页，不合并摘要。
+
+必须加的板块：
+
+Reading a level-up hand 小节，把权重表放进去：Rank-up for owned spell 1.2 · New spell 1.0 · Rank-up for owned passive 0.8 · New passive 0.5。
+
+Related：Tier list → /guide/tier-list/ · Talent tree → /guide/talent-tree/ · Luck → /guide/luck/.
+
+/guide/tier-list/ — 主关键词：azeroth survivors tier list
+标题 / Meta / H1
+Title：Azeroth Survivors Tier List — Class Rankings by Role
+
+Meta Description：Current Azeroth Survivors class rankings: S-tier Hunter, Warlock and Warrior, A-tier Mage and Paladin, and what each pick is actually good at. Alpha balance warning included.
+
+H1：Azeroth Survivors tier list
+
+正文
+开头必须放的警告（直接复制）：
+
+This game is in active alpha. One balance patch can reshuffle any ranking below. Treat this as a snapshot of the current consensus, not a permanent truth. If you already have gear and talents on a character, staying on it is worth more than chasing a one-tier difference.[reference:25]
+
+排名表（直接可用的 Markdown 表格）：
+
+Class	Range	Tier	Why
+Hunter	Ranged	S	Safe distance kills, free pet damage, strong single-target crits — best safety-to-power ratio for most players.
+Warlock	Ranged	S	DoTs that corpse-hop, demon pets, self-healing — snowballs hard once talents come online.
+Warrior	Melee	S	Huge health plus cleave, most forgiving melee; Whirlwind capstone turns into blender mode.
+Mage	Ranged	A	Fastest screen-clear, three strong capstones — glass cannon with no pets to hide behind.
+Paladin	Melee	A	Easiest first clear: Consecration, shields, self-heal, once-per-90s death save.
+Druid	Hybrid	B	Flexible kit, mid damage — viable with good talent luck.
+Rogue	Melee	B	Boss-melting burst but demands deliberate circling; punishes surround mistakes.
+Priest	Ranged	B	Steady sustain, slower against dense waves.
+Shaman	Hybrid	C	Chain Lightning scales with dense waves but ranks lowest in raw-damage breakdowns; most source-dependent class.
+
+按目的选职业（三行短段，直接可用）：
+
+First clear → Warrior or Paladin. Forgiving positioning, self-sustain, death saves; learn the waves before the meta.[reference:27]
+
+Power ceiling → Hunter or Warlock. Ranged safety plus scaling damage; Warlock especially snowballs with the right talents.[reference:28]
+
+Highest burst, lowest tolerance → Mage or Rogue. For players who already know enemy movement.[reference:29]
+
+必须加的板块：
+
+顶部 Alpha disclaimer 方框（上面第一段）。
+
+表格下方一行：Sources disagree mid-table — one data-mined ranking puts Warlock/Warrior top and Hunter/Shaman bottom, while play-feel guides rank Hunter first. The safe read is Hunter, Warlock, Warrior and Mage as top picks; everything else depends on playstyle.[reference:30]
+
+Related：Builds → /guide/builds/ · 每个职业页内链。
+
+职业页（每个职业一页，结构相同，文案替换职业内容即可）
+以下以 Hunter 为模板，其余职业按同样板块填充。每一节都是可直接粘贴的文案。
+
+/guide/builds/hunter/
+Title：Azeroth Survivors Hunter Build — Explosive Trap & Beast Mastery
+
+Meta Description：Hunter build for Azeroth Survivors: Explosive Trap / Beast Mastery shell, early area coverage, pet value and when to switch to single-target.
+
+H1：Azeroth Survivors Hunter build
+
+正文首段：
+
+Hunter is the safest S-tier pick in the current alpha because it does not need to stand in the wave to clear it. The community shell is Explosive Trap for area denial plus Beast Mastery for free pet damage while you keep moving. You are not the fastest screen-clear; you are the class that keeps its damage uptime while repositioning, which is why it holds up across zones and bosses alike.[reference:31][reference:32]
+
+Build phases（直接写，不泛泛）：
+
+0–3 min：Take Volley if it appears; otherwise take any area card to turn the spawn curve into experience. Do not commit to single-target yet.
+
+3–8 min：Commit to Explosive Trap as the carry. Add exactly one survival tool. Beast Mastery is the preferred second commitment because the pet keeps working while you dodge.
+
+8–15 min：Rank-ups only on the carry, then cooldown reduction. Bosses resist control; burst windows matter more than extra slows.
+
+Boss notes：Hunter's advantage is that the pet maintains pressure during your repositioning. Keep the boss between you and the pet, and do not burn the mobility spell to chase damage.
+
+Common mistakes：Taking single-target crit cards before Volley or Explosive Trap is online. Standing still to "let the pet tank". Spending rerolls in the first three levels instead of the 6–12 window.
+
+必须加的板块：Skill priority 短列表 · Passive priority 引用 Builds 总览页的 1–5 顺序 · FAQ 4问（Hunter 适合新手吗 / Explosive Trap 什么时候拿 / Beast Mastery 值不值得 / 猎人的弱点是什么）· Related：Builds 总览、Tier list、Warlock、Mage 职业页。
+
+其余职业页的首段文案（直接复制到对应页面）
+Paladin：
+
+Paladin is the easiest first clear in the game. Consecration gives you a persistent ground burn, shields and self-heal cover early mistakes, and the once-per-90-second death save means one bad wave does not end the run. It is A-tier rather than S because the power ceiling is lower than Hunter or Warlock, but for a player still learning enemy timing, the floor matters more than the ceiling.[reference:33]
+
+Warlock：
+
+Warlock is an S-tier snowball. DoTs that keep working after the target dies, demon pets, and self-healing mean the class gets stronger the longer a wave lasts. The community shell is Soul Link plus Drain Soul. It is not as immediately safe as Hunter, but once talents come online it scales harder than any other ranged class.[reference:34]
+
+Mage：
+
+Mage has the fastest screen-clear in the alpha and three strong capstones, but no pet to hide behind. Frostbite plus Shatter is the community S-tier shell. Play it if you already know enemy movement; the class punishes a missed reposition more than any other ranged pick.[reference:35][reference:36]
+
+Warrior：
+
+Warrior is the most forgiving melee: the largest health pool, built-in cleave, and a Whirlwind capstone that turns dense waves into free experience. The Arms / Execute / Mortal Strike direction produces very high DPS, but you have to keep moving — standing in caster packs is the one thing Warrior cannot heal through.[reference:37]
+
+Rogue：
+
+Rogue melts bosses and punishes surround mistakes. The burst is real, but the class demands deliberate circling: if you let the wave close from two sides, the health pool does not buy you enough time. It is the pick for players who already read enemy movement, not for a first clear.[reference:38]
+
+Priest / Shaman / Druid：同样各写一段，不共用模板。Priest 写“steady sustain, slower vs dense waves”；Shaman 写“Chain Lightning scales with dense waves but lowest raw-damage breakdown, most source-dependent”；Druid 写“flexible kit, mid damage, viable with good talent luck”。每个都链接回 Tier list 和 Builds 总览。
+
+/guide/luck/ — 主关键词：what does luck do in azeroth survivors
+Title：What Does Luck Do in Azeroth Survivors?
+
+Meta Description：Luck in Azeroth Survivors shifts the rarity of level-up drafts. It is a draft-quality stat, not a damage stat — here is where it sits in priority and when to take it.
+
+H1：What does Luck do in Azeroth Survivors?
+
+正文（直接可用）：
+
+Luck changes the rarity distribution of the cards you are offered on level-up. It does not add flat damage, and it does not change drop rates from bosses in a way you can measure from a single run. The practical effect is that a higher Luck stat gives you a better chance of seeing higher-quality drafts during the 3–8 minute commitment window, where a bad hand costs the most tempo.[reference:40]
+
+Treat Luck as a support stat, not a carry stat. If your draft already contains the area spell and the single survival tool you need, Luck is a reasonable third priority. If you are still missing your carry by minute 6, Luck is not the card that fixes the run.
+
+必须加的板块：Where Luck sits in priority 短列表（Carry spell rank > one survival tool > Luck / draft quality > pure damage %）· Related：Builds → /guide/builds/ · Talent tree → /guide/talent-tree/.
+
+/guide/save-file/ — 主关键词：azeroth survivors save file
+Title：Azeroth Survivors Save File — Location, Backup & Risks
+
+Meta Description：Where Azeroth Survivors stores progress, how to back up a save, and why save editors and third-party "full save" files are not worth the risk.
+
+H1：Azeroth Survivors save file
+
+正文：
+
+The browser build stores progress locally. On Windows, character data has been reported under the user profile in a characters.txt file; the exact path depends on how the browser build is packaged.[reference:41] Because the save is local, switching domains or clearing browser storage can wipe progress — this is the same reason players moving between mirrors and the official site have lost runs.[reference:42]
+
+Back up by copying the save file before you change domains, clear cache or try a different build. Do not use a third-party "full save" or save editor unless you are willing to lose the character: the community versions circulate without source and are not distributed by the developer. We do not link to them.
+
+必须加的板块：Backup checklist（复制文件 → 改域名前先备份 → 不要清浏览器存储直到确认新入口可用）· Related：Download → /guide/download/ · Safety → /guide/is-it-safe/.
+
+/guide/damage-meter/ — 主关键词：azeroth survivors damage meter
+Title：Azeroth Survivors Damage Meter — DPS Tracking & Custom HUD
+
+Meta Description：Why Azeroth Survivors has no built-in damage meter, what players use instead, and the risk of third-party HUD and DPS overlays.
+
+H1：Azeroth Survivors damage meter
+
+正文：
+
+The browser build does not ship a built-in DPS meter. Players who want per-run damage breakdowns use external overlays or community HUDs, and the search demand for "custom HUD" is real — but there is no developer-distributed HUD package. Anything that asks you to load an external script or replace a game file is running outside the official entry point.[reference:43]
+
+If you only need to compare your own runs, the in-game armory and talent screens already show what changed between attempts. Use those before adding a third-party overlay.
+
+必须加的板块：What to use instead 短列表 · Risk note（不托管 HUD 文件，不提供下载）· Related：Builds → /guide/builds/ · Talent tree → /guide/talent-tree/.
+
+/guide/talent-tree/ — 主关键词：azeroth survivors talent tree
+Title：Azeroth Survivors Talent Tree — 51-Point Meta Progression
+
+Meta Description：How the 51-point talent tree works between runs, what resets, what persists, and how to spend early points without wasting a run.
+
+H1：Azeroth Survivors talent tree
+
+正文：
+
+The talent tree is the between-run progression layer: 51 points, resettable, and separate from the in-run level-up draft. Boss gear, collection and talent progress carry across runs; a single run's card choices do not.[reference:44][reference:45]
+
+Spend early points on the stat that fixes your class's weakest phase, not on the stat that doubles down on its strongest phase. A Paladin with low movement benefits more from a defensive or mobility point than from another damage node; a Mage with no survival tool benefits more from a buffer than from a third damage multiplier.
+
+必须加的板块：What persists vs what resets 两列小表 · Where to check progress（Collection / Armory / Talents）· Related：Builds → /guide/builds/ · Luck → /guide/luck/.
+
+/guide/reddit/ 与 /guide/discord/ — 社区入口页
+这两个页面不做成“关键词页”，而是可验证入口汇总。
+
+/guide/reddit/
+Title：Azeroth Survivors Reddit — Where the Community Actually Posts
+
+Meta Description：Azeroth Survivors Reddit discussion: where the game gets talked about, what the community agrees on, and what to ignore. Unofficial fan guide.
+
+H1：Azeroth Survivors on Reddit
+
+正文首段：
+
+Azeroth Survivors does not have a single official subreddit run by the developer. Community discussion is scattered across the WoW-adjacent subreddits, r/roguelites and the project's own threads. The most useful pattern in those threads is not tier-list arguing — it is first-run troubleshooting: WebGPU warnings, slow first loads, and lost progress after switching domains.[reference:46]
+
+必须加的板块：What the community agrees on（3–4 条，只写可验证的共识：Hunter/Warlock/Warrior/Mage as safe top picks; WebGPU requirement; slow first load is normal）· What to ignore（single-run tier claims, "unlock all" links）· Related：Discord → /guide/discord/ · Safety → /guide/is-it-safe/.
+
+/guide/discord/
+Title：Azeroth Survivors Discord — Project Server & Community
+
+Meta Description：Where the Azeroth Survivors project Discord is referenced, what it is used for, and why we do not embed an unverified invite.
+
+H1：Azeroth Survivors Discord
+
+正文：
+
+The project's own change announcements and community coordination have been referenced through a project Discord linked from the developer's site. We do not embed a raw invite link here because invite links expire and unverified invites are a common phishing vector around fan projects.[reference:47] Start from the official entry point and follow its Discord link; that is the only invite chain you can verify end-to-end.
+
+必须加的板块：Why no embedded invite 短段 · Related：Reddit → /guide/reddit/ · Official site → /guide/official-website/.
+
+必须同时加的全站页脚与信任页
+页脚链接文案直接用：About · Editorial policy · Contact · Privacy · Terms · Sitemap。
+
+/about/ 首段：
+
+AzerothSurvivors.shop is an independent, unofficial field guide for Azeroth Survivors, the free browser roguelike by Aethus. We are not affiliated with Aethus, Blizzard Entertainment, or World of Warcraft. We do not host game files, mirrors, trainers or modified saves. Our job is to explain the game clearly and point you to the verified entry point, not to replace it.
+
+/editorial-policy/ 首段：
+
+Every guide on this site is written from play notes, verifiable community sources and the developer's own published information. We mark alpha-state mechanics as alpha, we date every page, and we correct pages when a balance patch or a confirmed source contradicts what we wrote. If a claim cannot be verified, it does not go in the main body — it goes in a note or it is left out.
+
+/contact/：只放你真实可用的联系方式。没有就写 Contact details are being updated. For corrections, use the form below. 不要编造邮箱。
