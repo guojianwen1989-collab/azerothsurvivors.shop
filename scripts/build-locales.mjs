@@ -96,6 +96,20 @@ Object.assign(translations['zh-cn'], {
       { id: 'questions', title: '常见追问', html: '<div class="faq-list"><details><summary>第一局大概要多久？</summary><p>整局没有固定时长。艾尔文森林的终局首领范克里夫约在 16 分钟登场，实际时长随战斗进程变化。</p></details><details><summary>选错职业要重开吗？</summary><p>结束当前局后可另开一局重新选职业。各职业的区域解锁和经验分别记录，选择不会互相转移。</p></details><details><summary>死了会掉进度吗？</summary><p>未获胜的局仍可能增加职业经验，并不意味着所有进度清零。区域解锁按职业记录，可用该职业回到已开放区域继续。</p></details></div>' }
     ]
   },
+  progressionArticle: {
+    title: '艾泽拉斯幸存者 配装与区域推进｜12 个区域顺序与强化思路',
+    description: '艾泽拉斯幸存者（Azeroth Survivors）配装与区域推进：12 个区域的先后顺序、什么时候该换区域、升级卡该点防御还是范围伤害，以及换浏览器前怎么保住进度。',
+    h1: '艾泽拉斯幸存者 配装与区域推进',
+    tocTitle: '本页目录',
+    sections: [
+      { id: 'core', title: '先定一个核心输出技能', html: '<p>升级时先看现有哪项能力已经稳定清理敌人，再集中挑能增加伤害、覆盖或配套效果的卡；别把选择平均分散。</p><p>观察开局阶段的表现，优先强化贡献最明显的技能；暂时看不清时，先支持已有能力，再按失血或敌群堆积补短板。具体效果以当前卡牌说明为准。</p>' },
+      { id: 'zones', title: '艾泽拉斯幸存者 12 个区域顺序', html: '<p>艾泽拉斯幸存者的区域按职业逐步开放。下表依照英文攻略顺序排列；通过当前区域后，下一处才会为该职业开放，实际选择以游戏内面板为准。</p><div class="guide-table-wrap"><table class="guide-table"><thead><tr><th>序号</th><th>区域中文名</th><th>英文原名</th><th>这一关要注意什么</th></tr></thead><tbody><tr><td>1</td><td>艾尔文森林</td><td>Elwynn Forest</td><td>熟悉走位，为终局留出空间。</td></tr><tr><td>2</td><td>暮色森林</td><td>Duskwood</td><td>确认本职业已开放此区域。</td></tr><tr><td>3</td><td>战歌峡谷</td><td>Warsong Gulch</td><td>观察敌群，及时调整路线。</td></tr><tr><td>4</td><td>安戈洛环形山</td><td>Un\'Goro Crater</td><td>延续有效的核心强化。</td></tr><tr><td>5</td><td>阿拉希盆地</td><td>Arathi Basin</td><td>容易倒下时优先补防御。</td></tr><tr><td>6</td><td>菲拉斯</td><td>Feralas</td><td>清怪慢时考虑范围与额外目标。</td></tr><tr><td>7</td><td>古拉巴什竞技场</td><td>Gurubashi Arena</td><td>移动时为自己留退路。</td></tr><tr><td>8</td><td>血色修道院</td><td>Scarlet Monastery</td><td>每次只调整一个选择。</td></tr><tr><td>9</td><td>奥特兰克山谷</td><td>Alterac Valley</td><td>核对本职业开放状态。</td></tr><tr><td>10</td><td>黑石山</td><td>Blackrock Mountain</td><td>针对失败原因补短板。</td></tr><tr><td>11</td><td>安其拉之门</td><td>Gates of Ahn\'Qiraj</td><td>沿用稳定的强化组合。</td></tr><tr><td>12</td><td>纳克萨玛斯</td><td>Naxxramas</td><td>以区域面板为准。</td></tr></tbody></table></div><p>区域解锁和进度按职业分别记录，换职业不会继承另一职业的开放情况。</p>' },
+      { id: 'switch', title: '什么时候该换下一个区域', html: '<p>艾泽拉斯幸存者该不该换区，要看这一局卡在哪里。能稳定到达首领但还没击败它，先调整走位或防御；击败首领后，再进入该职业开放的下一处。</p><p>若每局都在相近阶段倒下，判断是被围、输出不足还是选卡偏离核心，只改对应问题。也可回到已通过的区域积累职业经验。</p>' },
+      { id: 'cards', title: '升级卡怎么选：防御还是范围', html: '<p>艾泽拉斯幸存者的选卡顺序是：先保持核心技能的配套；首领前容易倒下时选防御；小怪不断堆积、清不完时选范围伤害或增加攻击目标。</p><p>防御争取存活空间，范围帮助自动攻击更快处理敌群。围绕眼前最明显的问题选择，不要因出现新卡就推翻原有方向。</p>' },
+      { id: 'save', title: '换设备前怎么不丢进度', html: '<p>艾泽拉斯幸存者的存档与浏览器站点数据及游戏网址绑定，迁移前先在原环境导出；目标环境已有进度时也先导出，再用游戏内导入。导入可能替换目标存档，操作前后都要核对；排查步骤见<a href="/zh-cn/guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复</a>。</p>' },
+      { id: 'questions', title: '常见追问', html: '<div class="faq-list"><details><summary>换职业要从第一区域重新打吗？</summary><p>要按新职业自己的区域解锁情况推进。区域进度与职业绑定，切换角色不会继承另一个职业已经开放的区域。</p></details><details><summary>区域能跳着打吗？</summary><p>通常要先完成当前职业已开放的区域，下一处才会解锁。以游戏内区域选择面板显示的开放状态为准。</p></details><details><summary>卡在哪一区域该回去刷吗？</summary><p>可以回到已通过的区域，为当前职业积累经验并继续调整强化方向；之后再尝试尚未通过的下一处。</p></details></div>' }
+    ]
+  },
   readGuideLocal: '查看中文攻略',
   fixArticle: {
     title: '艾泽拉斯幸存者 卡顿与存档｜WebGPU 报错、黑屏掉帧怎么修',
@@ -201,8 +215,9 @@ function localizedArticle(locale, page) {
   const firstRun = slug === 'first-run';
   const progression = slug === 'progression';
   const chineseFirstRun = locale.slug === 'zh-cn' && firstRun;
+  const chineseProgression = locale.slug === 'zh-cn' && progression;
   const chineseFix = locale.slug === 'zh-cn' && !firstRun && !progression;
-  const localizedChineseArticle = chineseFirstRun ? t.firstRunArticle : null;
+  const localizedChineseArticle = chineseFirstRun ? t.firstRunArticle : chineseProgression ? t.progressionArticle : null;
   const fixArticle = t.fixArticle;
   const title = chineseFix ? fixArticle.title : localizedChineseArticle ? localizedChineseArticle.title : `Azeroth Survivors — ${firstRun ? t.firstTitle : progression ? t.buildTitle : t.fixTitle}`;
   const description = chineseFix ? fixArticle.description : localizedChineseArticle ? localizedChineseArticle.description : firstRun ? t.firstText : progression ? t.buildText : t.fixText;
@@ -241,9 +256,11 @@ function localizedArticle(locale, page) {
   const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2>${footerGuides}</div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
   const related = chineseFirstRun
     ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进 →</a></section>'
+    : chineseProgression
+      ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打 →</a><br><a class="text-link" href="/zh-cn/guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复 →</a></section>'
       : chineseFix
-    ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打 →</a><br><a class="text-link" href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进 →</a></section>'
-    : locale.slug === 'zh-cn' ? `<section class="sources"><p>${t.englishNote}</p></section>` : `<section class="sources"><p>${t.englishNote}</p><a class="text-link" href="https://azerothsurvivors.shop/${page}">${t.readGuide} →</a></section>`;
+        ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打 →</a><br><a class="text-link" href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进 →</a></section>'
+        : locale.slug === 'zh-cn' ? `<section class="sources"><p>${t.englishNote}</p></section>` : `<section class="sources"><p>${t.englishNote}</p><a class="text-link" href="https://azerothsurvivors.shop/${page}">${t.readGuide} →</a></section>`;
   return `${head}<body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${esc(articleHeading)}</h1><p>${esc(description)}</p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="${t.guides}"><h2>${chineseFix || localizedChineseArticle ? (localizedChineseArticle?.tocTitle || fixArticle.tocTitle) : t.quickTitle}</h2>${tocHtml}</nav><article class="guide-content">${body}${related}</article></div></main>${footer}</body></html>`;
 }
 
