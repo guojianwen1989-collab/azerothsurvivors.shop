@@ -82,6 +82,38 @@ Object.assign(translations['zh-cn'], {
   articleQuick2: '用 WASD 或方向键移动；技能会自动攻击。',
   articleQuick3: '拾取经验，升级时从卡牌中选择一项强化。',
   articleQuick4: '首领出现前移向开阔地带，并留好撤退路线。',
+  readGuideLocal: '查看中文攻略',
+  fixArticle: {
+    title: '艾泽拉斯幸存者 卡顿与存档｜WebGPU 报错、黑屏掉帧怎么修',
+    description: '艾泽拉斯幸存者（Azeroth Survivors）卡顿怎么办：WebGPU 报错、掉帧、黑屏一直加载、存档丢失四类问题各自的排查顺序，以及换浏览器或设备前怎么备份存档。',
+    h1: '艾泽拉斯幸存者 卡顿、WebGPU 报错与存档找回',
+    tocTitle: '本页目录',
+    sections: [
+      { id: 'diagnose', title: '先判断你遇到的是哪一类问题', lead: '艾泽拉斯幸存者的故障可能来自浏览器能力、设备负载、页面载入或存档环境，先辨认症状再排查。先按症状定位，再动手改设置，不要一次改多个地方。', rows: [['WebGPU 报错', '浏览器或设备不支持', 'webgpu', 'WebGPU 报错怎么修'], ['卡顿、掉帧', '图形负载高或后台占用', 'performance', '卡顿、掉帧怎么处理'], ['黑屏、持续加载', '网络、载入或图形初始化', 'loading', '黑屏、一直加载不出来'], ['存档不见', '浏览器、网址或站点数据不同', 'save', '存档不见了怎么找回']] },
+      { id: 'webgpu', title: '艾泽拉斯幸存者 WebGPU 报错怎么修', paragraphs: [
+        '艾泽拉斯幸存者出现 WebGPU 报错时，先确认网址来自开发者，并记下报错。更新浏览器后重启，确认硬件加速已开启；笔记本还需确认浏览器使用高性能显卡。',
+        '若浏览器识别 WebGPU 但游戏仍无法启动，再检查图形驱动与设备支持。设置找不到或提示不变，就停止反复切换实验选项、安装扩展；改用受支持的浏览器或设备再试，不要下载第三方游戏文件。本站不托管游戏。'
+      ] },
+      { id: 'performance', title: '艾泽拉斯幸存者 卡顿、掉帧怎么处理', paragraphs: [
+        '艾泽拉斯幸存者卡顿或掉帧时，先判断是整页迟缓，还是敌群多时短暂变慢。关闭占用资源的标签和后台程序，再在游戏 Options 降低 Render Scale，每次只改一项观察。',
+        '笔记本检查高性能显卡；若页面提示玩家过多，这是游戏主机繁忙或请求受限，等待后再试，不要改图形设置。调整后仍卡顿，就停止多项试错，分清载入慢与性能不足。'
+      ] },
+      { id: 'loading', title: '艾泽拉斯幸存者 黑屏、一直加载不出来', paragraphs: [
+        '艾泽拉斯幸存者黑屏或持续加载时，先确认网络正常，保持游戏页打开等待资源载入。仍停滞就重新载入，再从开发者网址打开；确认浏览器存储可用，隐私模式或严格存储可能影响缓存。',
+        '仍无画面，检查 WebGPU 与图形设备，并按上两节排查。若普通网页也打不开，先处理网络；只有游戏黑屏时不要反复清缓存，以免误删站点数据。'
+      ] },
+      { id: 'save', title: '艾泽拉斯幸存者 存档不见了怎么找回', paragraphs: [
+        '艾泽拉斯幸存者存档与浏览器站点数据及游戏网址绑定，换浏览器、设备或网址不会自动同步。先回原地址和浏览器查看进度，不要清除站点数据。',
+        '迁移前在原环境从 Options > Saves 选择 Export Save 并备份。目标环境已有进度时也先导出，再用 Import Save 导入；导入可能覆盖目标存档，完成后先在游戏里核对。若原数据已清除且无备份，停止覆盖式尝试；本站无法恢复存档，操作需在开发者页面完成。'
+      ] },
+      { id: 'questions', title: '常见追问', lead: '艾泽拉斯幸存者的设备兼容与存档位置取决于游玩环境，先核对原地址和浏览器。', faq: [
+        ['换了浏览器存档还在吗？', '通常不会自动同步。存档跟原浏览器和游戏网址有关；换之前先在原环境导出，再到目标环境用游戏内导入。'],
+        ['手机能玩吗？', '能否启动取决于手机浏览器对 WebGPU 的支持和设备图形能力；若黑屏或报错，按上面的步骤排查，不能假设所有设备都支持。'],
+        ['需要装模拟器吗？', '游戏通过开发者网页运行，不需要本站下载游戏或配置模拟器。能否运行取决于浏览器和设备支持，不要从第三方下载模拟器。'],
+        ['清除缓存能找回存档吗？', '不能保证，清除网站数据可能移除原浏览器保存的进度。先回原网址确认；迁移前导出原存档，并先备份目标进度。']
+      ] }
+    ]
+  },
 });
 
 const zhHomeSections = Object.fromEntries(fs.readFileSync('scripts/zh-cn-home.md', 'utf8').split(/^### /m).flatMap(block => {
@@ -112,11 +144,12 @@ function localizedPage(locale, page) {
   const title = isGuide ? t.guideTitle : t.title;
   const description = isGuide ? t.guideDescription : t.description;
   const url = route(locale, page);
-  const assetPrefix = isGuide ? '../../assets/' : '../assets/';
-  const homeHref = isGuide ? '../' : './';
-  const guideHref = isGuide ? './' : 'guide/';
+  const assetPrefix = isGuide && locale.slug === 'zh-cn' ? '/assets/' : isGuide ? '../../assets/' : '../assets/';
+  const homeHref = isGuide ? locale.slug === 'zh-cn' ? '/zh-cn/' : '../' : './';
+  const guideHref = isGuide ? locale.slug === 'zh-cn' ? '/zh-cn/guide/' : './' : 'guide/';
   const guideLabel = t.guidePageHeading || t.guideHeading;
   const cardHrefs = locale.slug === 'zh-cn' ? ['guide/first-run/', 'guide/progression/', 'guide/fixes/'] : ['guide/', 'guide/', 'guide/'];
+  const guideCardLabel = locale.slug === 'zh-cn' ? t.readGuideLocal : t.readGuide;
   const guideQuick = n => t[`articleQuick${n}`] || t[`quick${n}`];
   const schema = JSON.stringify({ '@context': 'https://schema.org', '@graph': [
     { '@type': isGuide ? 'CollectionPage' : 'WebPage', name: title, description, inLanguage: locale.code, url },
@@ -134,12 +167,14 @@ ${alternates(page)}
   <script type="application/ld+json">${schema}</script>
 </head>`;
   const header = `<header class="site-header locale-header"><div class="shell header-inner"><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><nav class="nav locale-nav" aria-label="Main navigation"><a href="${homeHref}">${t.home}</a><a href="${homeHref}#about">${t.about}</a><a href="${guideHref}">${t.guides}</a><a href="${homeHref}#faq">${t.faq}</a></nav>${languageMenu(locale, page)}<a class="button button-small button-gold" href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></div></header>`;
-  const footerGuides = locale.slug === 'zh-cn' && !isGuide
-    ? '<a href="guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打</a><a href="guide/progression/">艾泽拉斯幸存者 配装与区域推进</a><a href="guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复</a>'
+  const footerGuides = locale.slug === 'zh-cn' && isGuide
+    ? '<a href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打</a><a href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进</a><a href="/zh-cn/guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复</a>'
+    : locale.slug === 'zh-cn'
+      ? '<a href="guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打</a><a href="guide/progression/">艾泽拉斯幸存者 配装与区域推进</a><a href="guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复</a>'
     : `<a href="${guideHref}">${guideLabel}</a><a href="https://azerothsurvivors.shop/guide/first-run/">${t.firstTitle} · EN</a><a href="https://azerothsurvivors.shop/guide/fixes/">${t.fixTitle} · EN</a>`;
   const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2>${footerGuides}</div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
   const body = isGuide
-    ? `<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${t.guideHero}</h1><p>${t.guideLead}</p></div></section><section class="section reading-section"><div class="shell section-heading"><div><p class="eyebrow">${guideLabel}</p><h2>${t.quickTitle}</h2><p>${t.guideLead}</p></div></div><div class="shell reading-grid"><article class="reading-card"><span>01 / ${t.firstTitle}</span><h3>${t.firstTitle}</h3><p>${t.firstText}</p><p>${guideQuick(1)} ${guideQuick(2)} ${guideQuick(3)}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/first-run/">${t.readGuide} →</a></article><article class="reading-card"><span>02 / ${t.buildTitle}</span><h3>${t.buildTitle}</h3><p>${t.buildText}</p><p>${t.buildTipText}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/progression/">${t.readGuide} →</a></article><article class="reading-card"><span>03 / ${t.fixTitle}</span><h3>${t.fixTitle}</h3><p>${t.fixText}</p><p>${t.quickFixText}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/fixes/">${t.readGuide} →</a></article></div><div class="shell"><p class="locale-note">${t.englishNote}</p></div></section></main>`
+    ? `<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${t.guideHero}</h1><p>${t.guideLead}</p></div></section><section class="section reading-section"><div class="shell section-heading"><div><p class="eyebrow">${guideLabel}</p><h2>${t.quickTitle}</h2><p>${t.guideLead}</p></div></div><div class="shell reading-grid"><article class="reading-card"><span>01 / ${t.firstTitle}</span><h3>${t.firstTitle}</h3><p>${t.firstText}</p><p>${guideQuick(1)} ${guideQuick(2)} ${guideQuick(3)}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/first-run/">${guideCardLabel} →</a></article><article class="reading-card"><span>02 / ${t.buildTitle}</span><h3>${t.buildTitle}</h3><p>${t.buildText}</p><p>${t.buildTipText}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/progression/">${guideCardLabel} →</a></article><article class="reading-card"><span>03 / ${t.fixTitle}</span><h3>${t.fixTitle}</h3><p>${t.fixText}</p><p>${t.quickFixText}</p><a class="text-link" href="https://azerothsurvivors.shop/guide/fixes/">${guideCardLabel} →</a></article></div><div class="shell"><p class="locale-note">${t.englishNote}</p></div></section></main>`
     : `<main id="main"><section class="hero"><div class="hero-art" aria-hidden="true"></div><div class="shell hero-content"><p class="eyebrow">${t.kicker} <span class="line"></span></p><h1 id="hero-title">${t.hero}</h1><p class="hero-lede">${t.lead}</p><p class="hero-sub">${t.heroSub || t.overviewText}</p><div class="hero-actions"><a class="button button-gold" href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a><a class="button button-outline" href="guide/">${t.explore} →</a></div><p class="hero-note">${t.noAccount}<span>·</span>WebGPU</p></div><div class="shell hero-bottom"><span>AZEROTH SURVIVORS</span><span>${t.kicker}</span></div></section><section id="about" class="section intro-section"><div class="shell"><div class="intro-grid"><div><p class="eyebrow">${t.about}</p><h2>${t.overviewHeading || t.overview}</h2></div><div class="intro-copy"><p>${t.overviewText}</p><a class="text-link" href="guide/">${t.explore} ↗</a></div></div><div class="stat-row"><div><strong>09</strong><span>CLASSES</span></div><div><strong>12</strong><span>GUIDE ZONES</span></div><div><strong>03</strong><span>UPGRADES PER LEVEL</span></div><div><strong>16</strong><span>MIN · ELWYNN FINALE</span></div></div></div></section><section id="guides" class="section reading-section"><div class="shell section-heading"><div><p class="eyebrow">${t.guides}</p><h2>${t.guideHeading}</h2><p>${t.guideLead}</p></div></div><div class="shell reading-grid"><a class="reading-card" href="${cardHrefs[0]}"><span>01 / ${t.firstTitle}</span><h3>${t.firstTitle}</h3><p>${t.firstText}</p><b>${t.explore} →</b></a><a class="reading-card" href="${cardHrefs[1]}"><span>02 / ${t.buildTitle}</span><h3>${t.buildTitle}</h3><p>${t.buildText}</p><b>${t.explore} →</b></a><a class="reading-card" href="${cardHrefs[2]}"><span>03 / ${t.fixTitle}</span><h3>${t.fixTitle}</h3><p>${t.fixText}</p><b>${t.explore} →</b></a></div></section><section class="section how-section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${t.quickTitle}</p><h2>${t.quickHeading || t.hero}</h2></div></div><div class="steps"><article><span>01</span><h3>${t.step1Title || t.firstTitle}</h3><p>${t.quick1}</p></article><article><span>02</span><h3>${t.step2Title || t.about}</h3><p>${t.quick2}</p></article><article><span>03</span><h3>${t.step3Title || t.guides}</h3><p>${t.quick3}</p></article><article><span>04</span><h3>${t.step4Title || t.faq}</h3><p>${t.quick4}</p></article></div></div></section><section id="faq" class="section faq-section"><div class="shell faq-grid"><div><p class="eyebrow">${t.faq}</p><h2>${t.faqTitle}</h2><p>${t.faqLead || t.guideLead}</p></div><div class="faq-list"><details><summary>${t.q1}</summary><p>${t.a1}</p></details><details><summary>${t.q2}</summary><p>${t.a2}</p></details><details><summary>${t.q3}</summary><p>${t.a3}</p></details><details><summary>${t.q4}</summary><p>${t.a4}</p></details></div></div></section></main>`;
   const pageBody = isGuide ? body.replaceAll('https://azerothsurvivors.shop/guide/first-run/', 'first-run/').replaceAll('https://azerothsurvivors.shop/guide/progression/', 'progression/').replaceAll('https://azerothsurvivors.shop/guide/fixes/', 'fixes/') : locale.slug === 'zh-cn' ? body.replace('</div></div><div class="stat-row">', `</div></div>${zhHomeSections[1].paragraphs}<div class="stat-row">`).replace('</article></div></div></section><section id="faq"', `</article></div>${zhHomeSections[2].paragraphs}</div></section>${[3, 4, 5].map(zhHomeSection).join('')}<section id="faq"`) : body;
   return `${head}\n<body><a class="skip-link" href="#main">Skip to content</a>${header}${pageBody}${footer}\n</body></html>`;
@@ -151,29 +186,44 @@ function localizedArticle(locale, page) {
   const slug = page.split('/').filter(Boolean).at(-1);
   const firstRun = slug === 'first-run';
   const progression = slug === 'progression';
-  const title = `Azeroth Survivors — ${firstRun ? t.firstTitle : progression ? t.buildTitle : t.fixTitle}`;
-  const description = firstRun ? t.firstText : progression ? t.buildText : t.fixText;
+  const chineseFix = locale.slug === 'zh-cn' && !firstRun && !progression;
+  const fixArticle = t.fixArticle;
+  const title = chineseFix ? fixArticle.title : `Azeroth Survivors — ${firstRun ? t.firstTitle : progression ? t.buildTitle : t.fixTitle}`;
+  const description = chineseFix ? fixArticle.description : firstRun ? t.firstText : progression ? t.buildText : t.fixText;
+  const articleHeading = chineseFix ? fixArticle.h1 : title;
   const url = route(locale, page);
   const schema = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: title, description, inLanguage: locale.code, mainEntityOfPage: url, publisher: { '@type': 'Organization', name: 'Azeroth Survivors Guide' } });
-  const part = (id, heading, text) => `<section id="${id}"><p class="eyebrow">${t.guideKicker}</p><h2>${heading}</h2><p>${text}</p></section>`;
+  const part = (id, heading, text) => `<section id="${id}">${locale.slug === 'zh-cn' ? '' : `<p class="eyebrow">${t.guideKicker}</p>`}<h2>${heading}</h2><p>${text}</p></section>`;
   let toc, body;
-  if (firstRun) {
+  if (chineseFix) {
+    const [diagnose, webgpu, performance, loading, save, questions] = fixArticle.sections;
+    toc = fixArticle.sections.map(section => [section.title, section.id]);
+    const rows = diagnose.rows.map(([symptom, cause, id, label]) => `<tr><td>${symptom}</td><td>${cause}</td><td><a href="#${id}">${label}</a></td></tr>`).join('');
+    body = `<section id="${diagnose.id}"><h2>${diagnose.title}</h2><div class="guide-table-wrap"><table class="guide-table"><thead><tr><th>症状</th><th>最可能的原因</th><th>去下面的哪一节</th></tr></thead><tbody>${rows}</tbody></table></div><p>${diagnose.lead}</p></section>${[webgpu, performance, loading, save].map(section => `<section id="${section.id}"><h2>${section.title}</h2>${section.paragraphs.map(text => `<p>${text}</p>`).join('')}</section>`).join('')}<section id="${questions.id}"><h2>${questions.title}</h2><p>${questions.lead}</p><div class="faq-list">${questions.faq.map(([question, answer]) => `<details><summary>${question}</summary><p>${answer}</p></details>`).join('')}</div></section>`;
+  } else if (firstRun) {
     toc = [[t.quickTitle, 'quick'], [t.firstTitle, 'move'], [t.buildTitle, 'build'], [t.zoneTip, 'progress']];
-    body = `<section id="quick"><p class="eyebrow">${t.guideKicker}</p><h2>${t.quickTitle}</h2><ol><li>${quick(1)}</li><li>${quick(2)}</li><li>${quick(3)}</li><li>${quick(4)}</li></ol></section>${part('move', t.firstTitle, `${t.firstText} ${quick(2)} ${quick(4)}`)}${part('build', t.buildTitle, `${t.buildText} ${t.buildTipText}`)}${part('progress', t.zoneTip, `${t.zoneTipText} ${t.a3}`)}`;
+    body = `<section id="quick">${locale.slug === 'zh-cn' ? '' : `<p class="eyebrow">${t.guideKicker}</p>`}<h2>${t.quickTitle}</h2><ol><li>${quick(1)}</li><li>${quick(2)}</li><li>${quick(3)}</li><li>${quick(4)}</li></ol></section>${part('move', t.firstTitle, `${t.firstText} ${quick(2)} ${quick(4)}`)}${part('build', t.buildTitle, `${t.buildText} ${t.buildTipText}`)}${part('progress', t.zoneTip, `${t.zoneTipText} ${t.a3}`)}`;
   } else if (progression) {
     toc = [[t.buildTitle, 'build'], [t.quickTitle, 'adapt'], [t.zoneTip, 'zones'], [t.faqTitle, 'save']];
-    body = `${part('build', t.buildTitle, `${t.buildText} ${t.buildTipText}`)}${part('adapt', t.quickTitle, `${t.buildTipText} ${quick(4)}`)}<section id="zones"><p class="eyebrow">${t.guideKicker}</p><h2>${t.zoneTip}</h2><p>${t.zoneTipText}</p><ol><li>Elwynn Forest</li><li>Duskwood</li><li>Warsong Gulch</li><li>Un'Goro Crater</li><li>Arathi Basin</li><li>Feralas</li><li>Gurubashi Arena</li><li>Scarlet Monastery</li><li>Alterac Valley</li><li>Blackrock Mountain</li><li>Gates of Ahn'Qiraj</li><li>Naxxramas</li></ol></section>${part('save', t.faqTitle, t.a3)}`;
+    body = `${part('build', t.buildTitle, `${t.buildText} ${t.buildTipText}`)}${part('adapt', t.quickTitle, `${t.buildTipText} ${quick(4)}`)}<section id="zones">${locale.slug === 'zh-cn' ? '' : `<p class="eyebrow">${t.guideKicker}</p>`}<h2>${t.zoneTip}</h2><p>${t.zoneTipText}</p><ol><li>Elwynn Forest</li><li>Duskwood</li><li>Warsong Gulch</li><li>Un'Goro Crater</li><li>Arathi Basin</li><li>Feralas</li><li>Gurubashi Arena</li><li>Scarlet Monastery</li><li>Alterac Valley</li><li>Blackrock Mountain</li><li>Gates of Ahn'Qiraj</li><li>Naxxramas</li></ol></section>${part('save', t.faqTitle, t.a3)}`;
   } else {
     toc = [[t.quickFix, 'browser'], [t.fixTitle, 'performance'], [t.faqTitle, 'save'], [t.play, 'download']];
     body = `${part('browser', t.quickFix, `${t.quickFixText} ${t.a4}`)}${part('performance', t.fixTitle, t.fixText)}${part('save', t.faqTitle, `${t.a3}`)}<section id="download"><p class="eyebrow">${t.guideKicker}</p><h2>${t.play}</h2><p>Azeroth Survivors · ${t.guides}</p><a href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></section>`;
   }
   const tocHtml = toc.map(([label, id]) => `<a href="#${id}">${label}</a>`).join('');
-  const homeHref = '../../';
-  const guideHref = '../';
-  const head = `<!doctype html><html lang="${locale.code}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}/assets/hero.webp"><meta property="og:locale" content="${locale.code.replace('-', '_')}"><meta name="theme-color" content="#101915"><link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../../assets/style.css">${alternates(page)}<script type="application/ld+json">${schema}</script></head>`;
+  const homeHref = locale.slug === 'zh-cn' ? '/zh-cn/' : '../../';
+  const guideHref = locale.slug === 'zh-cn' ? '/zh-cn/guide/' : '../';
+  const articleAssets = locale.slug === 'zh-cn' ? '/assets/' : '../../../assets/';
+  const head = `<!doctype html><html lang="${locale.code}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${url}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${origin}/assets/hero.webp"><meta property="og:locale" content="${locale.code.replace('-', '_')}"><meta name="theme-color" content="#101915"><link rel="icon" href="${articleAssets}favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${articleAssets}style.css">${alternates(page)}<script type="application/ld+json">${schema}</script></head>`;
   const header = `<header class="site-header locale-header"><div class="shell header-inner"><a class="brand" href="${homeHref}"><span class="brand-mark" aria-hidden="true">✦</span><span>AZEROTH <em>SURVIVORS</em><small>UNOFFICIAL FIELD GUIDE</small></span></a><nav class="nav locale-nav" aria-label="Main navigation"><a href="${homeHref}">${t.home}</a><a href="${homeHref}#about">${t.about}</a><a href="${guideHref}">${t.guides}</a><a href="${homeHref}#faq">${t.faq}</a></nav>${languageMenu(locale, page)}<a class="button button-small button-gold" href="https://wow.aethus.pl/" target="_blank" rel="noopener noreferrer">${t.play} ↗</a></div></header>`;
-  const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2><a href="${guideHref}">${t.guidePageHeading || t.guideHeading}</a><a href="https://azerothsurvivors.shop/${page}">${t.readGuide} · EN</a></div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
-  return `${head}<body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${esc(title)}</h1><p>${esc(description)}</p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="${t.guides}"><h2>${t.quickTitle}</h2>${tocHtml}</nav><article class="guide-content">${body}<section class="sources"><p>${t.englishNote}</p><a class="text-link" href="https://azerothsurvivors.shop/${page}">${t.readGuide} →</a></section></article></div></main>${footer}</body></html>`;
+  const footerGuides = locale.slug === 'zh-cn'
+    ? '<a href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打</a><a href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进</a><a href="/zh-cn/guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复</a>'
+    : `<a href="${guideHref}">${t.guidePageHeading || t.guideHeading}</a><a href="https://azerothsurvivors.shop/${page}">${t.readGuide} · EN</a>`;
+  const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2>${footerGuides}</div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
+  const related = chineseFix
+    ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打 →</a><br><a class="text-link" href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进 →</a></section>'
+    : locale.slug === 'zh-cn' ? `<section class="sources"><p>${t.englishNote}</p></section>` : `<section class="sources"><p>${t.englishNote}</p><a class="text-link" href="https://azerothsurvivors.shop/${page}">${t.readGuide} →</a></section>`;
+  return `${head}<body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${esc(articleHeading)}</h1><p>${esc(description)}</p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="${t.guides}"><h2>${chineseFix ? fixArticle.tocTitle : t.quickTitle}</h2>${tocHtml}</nav><article class="guide-content">${body}${related}</article></div></main>${footer}</body></html>`;
 }
 
 function addAlternates(html, page, localeSubset = locales) {
