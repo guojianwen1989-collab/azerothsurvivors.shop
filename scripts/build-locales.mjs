@@ -82,6 +82,20 @@ Object.assign(translations['zh-cn'], {
   articleQuick2: '用 WASD 或方向键移动；技能会自动攻击。',
   articleQuick3: '拾取经验，升级时从卡牌中选择一项强化。',
   articleQuick4: '首领出现前移向开阔地带，并留好撤退路线。',
+  firstRunArticle: {
+    title: '艾泽拉斯幸存者 新手第一局怎么打｜从选职业到第一个首领',
+    description: '艾泽拉斯幸存者（Azeroth Survivors）新手第一局怎么开局：选哪个职业、第一个区域艾尔文森林怎么打、升级卡怎么选，以及第一个首领出现前要做的准备。',
+    h1: '艾泽拉斯幸存者 新手第一局怎么打',
+    tocTitle: '本页目录',
+    sections: [
+      { id: 'start', title: '开局只需要定两件事', html: '<p>第一局先决定职业和区域，别在选择界面反复比较技能。职业会改变自动攻击和接敌方式；新手先看懂当前能力，再据此选卡。</p><p>想留出容错空间，可试圣骑士或战士；偏好与敌人保持距离，可选猎人。区域先选艾尔文森林，这是路线起点，适合熟悉移动、收集经验和升级。跑过一局再判断是否合手，比追求一次选到最佳更实际。</p>' },
+      { id: 'steps', title: '艾泽拉斯幸存者 第一局：四步走完', html: '<p>艾泽拉斯幸存者的基本循环是移动、收集经验、选择升级卡；技能自动攻击，所以开局要边走边观察敌群。按下面的顺序开始即可。</p><ol><li>打开游戏：在浏览器进入开发者的游戏页面；本站只提供攻略。</li><li>选职业：选容易理解的角色；圣骑士或战士较有容错，猎人适合拉开距离。</li><li>选区域开打：进入艾尔文森林，用 WASD 或方向键移动，让技能自动攻击。</li><li>拾取经验升级选卡：安全时捡经验；升级后选支援输出或弥补生存短板的卡。</li></ol>' },
+      { id: 'boss', title: '第一个首领怎么过', html: '<p>艾泽拉斯幸存者的首领会在战斗推进中陆续出现，交战时不要停下。沿开阔地带移动，让追来的敌人留在身后，并看好转向路线；被逼到边缘时先脱离，再回头捡经验。</p><p>艾尔文森林的终局首领范克里夫约在 16 分钟登场；这不是本区最早出现的首领。临近终局时移向空地、留好撤退路线，不要为经验光点切入敌群。未获胜的局仍可能增加职业经验。</p>' },
+      { id: 'mistakes', title: '第一局最容易犯的三个错', html: '<ol><li><strong>只站在原地输出。</strong>自动攻击不代表角色可以停住。沿开阔处移动，转弯前确认有路；首领出现时也继续走。</li><li><strong>升级只选攻击。</strong>若常在首领前倒下，先考虑生命、防护或控制；若能活下来但敌人越积越多，再选范围伤害或增加攻击目标。一次处理最明显的短板。</li><li><strong>为了经验硬闯敌群。</strong>不要直线切进密集区域，先绕到空处，等敌人拉开再回收。拾取距离不足时，留意可用的范围提升或经验磁铁。</li></ol>' },
+      { id: 'after', title: '第一局结束之后做什么', html: '<p>结束后判断问题是被围、清怪慢，还是选卡不成体系；下一局只改一项，方便比较。需要规划后续路线时，查看<a href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进</a>。</p>' },
+      { id: 'questions', title: '常见追问', html: '<div class="faq-list"><details><summary>第一局大概要多久？</summary><p>整局没有固定时长。艾尔文森林的终局首领范克里夫约在 16 分钟登场，实际时长随战斗进程变化。</p></details><details><summary>选错职业要重开吗？</summary><p>结束当前局后可另开一局重新选职业。各职业的区域解锁和经验分别记录，选择不会互相转移。</p></details><details><summary>死了会掉进度吗？</summary><p>未获胜的局仍可能增加职业经验，并不意味着所有进度清零。区域解锁按职业记录，可用该职业回到已开放区域继续。</p></details></div>' }
+    ]
+  },
   readGuideLocal: '查看中文攻略',
   fixArticle: {
     title: '艾泽拉斯幸存者 卡顿与存档｜WebGPU 报错、黑屏掉帧怎么修',
@@ -186,16 +200,21 @@ function localizedArticle(locale, page) {
   const slug = page.split('/').filter(Boolean).at(-1);
   const firstRun = slug === 'first-run';
   const progression = slug === 'progression';
+  const chineseFirstRun = locale.slug === 'zh-cn' && firstRun;
   const chineseFix = locale.slug === 'zh-cn' && !firstRun && !progression;
+  const localizedChineseArticle = chineseFirstRun ? t.firstRunArticle : null;
   const fixArticle = t.fixArticle;
-  const title = chineseFix ? fixArticle.title : `Azeroth Survivors — ${firstRun ? t.firstTitle : progression ? t.buildTitle : t.fixTitle}`;
-  const description = chineseFix ? fixArticle.description : firstRun ? t.firstText : progression ? t.buildText : t.fixText;
-  const articleHeading = chineseFix ? fixArticle.h1 : title;
+  const title = chineseFix ? fixArticle.title : localizedChineseArticle ? localizedChineseArticle.title : `Azeroth Survivors — ${firstRun ? t.firstTitle : progression ? t.buildTitle : t.fixTitle}`;
+  const description = chineseFix ? fixArticle.description : localizedChineseArticle ? localizedChineseArticle.description : firstRun ? t.firstText : progression ? t.buildText : t.fixText;
+  const articleHeading = chineseFix ? fixArticle.h1 : localizedChineseArticle ? localizedChineseArticle.h1 : title;
   const url = route(locale, page);
   const schema = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: title, description, inLanguage: locale.code, mainEntityOfPage: url, publisher: { '@type': 'Organization', name: 'Azeroth Survivors Guide' } });
   const part = (id, heading, text) => `<section id="${id}">${locale.slug === 'zh-cn' ? '' : `<p class="eyebrow">${t.guideKicker}</p>`}<h2>${heading}</h2><p>${text}</p></section>`;
   let toc, body;
-  if (chineseFix) {
+  if (localizedChineseArticle) {
+    toc = localizedChineseArticle.sections.map(section => [section.title, section.id]);
+    body = localizedChineseArticle.sections.map(section => `<section id="${section.id}"><h2>${section.title}</h2>${section.html}</section>`).join('');
+  } else if (chineseFix) {
     const [diagnose, webgpu, performance, loading, save, questions] = fixArticle.sections;
     toc = fixArticle.sections.map(section => [section.title, section.id]);
     const rows = diagnose.rows.map(([symptom, cause, id, label]) => `<tr><td>${symptom}</td><td>${cause}</td><td><a href="#${id}">${label}</a></td></tr>`).join('');
@@ -220,10 +239,12 @@ function localizedArticle(locale, page) {
     ? '<a href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打</a><a href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进</a><a href="/zh-cn/guide/fixes/">艾泽拉斯幸存者 卡顿与存档修复</a>'
     : `<a href="${guideHref}">${t.guidePageHeading || t.guideHeading}</a><a href="https://azerothsurvivors.shop/${page}">${t.readGuide} · EN</a>`;
   const footer = `<footer class="site-footer"><div class="shell footer-grid"><div><p>Azeroth Survivors · ${t.guides}</p></div><div><h2>${t.guides}</h2>${footerGuides}</div><div><h2>Language / 地区</h2>${locales.map(item => `<a lang="${item.code}" href="${route(item, page)}">${item.name}</a>`).join('')}</div></div><div class="shell footer-bottom"><span>© 2026 Azeroth Survivors Guide</span></div></footer>`;
-  const related = chineseFix
+  const related = chineseFirstRun
+    ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进 →</a></section>'
+      : chineseFix
     ? '<section class="sources"><a class="text-link" href="/zh-cn/guide/first-run/">艾泽拉斯幸存者 新手第一局怎么打 →</a><br><a class="text-link" href="/zh-cn/guide/progression/">艾泽拉斯幸存者 配装与区域推进 →</a></section>'
     : locale.slug === 'zh-cn' ? `<section class="sources"><p>${t.englishNote}</p></section>` : `<section class="sources"><p>${t.englishNote}</p><a class="text-link" href="https://azerothsurvivors.shop/${page}">${t.readGuide} →</a></section>`;
-  return `${head}<body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${esc(articleHeading)}</h1><p>${esc(description)}</p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="${t.guides}"><h2>${chineseFix ? fixArticle.tocTitle : t.quickTitle}</h2>${tocHtml}</nav><article class="guide-content">${body}${related}</article></div></main>${footer}</body></html>`;
+  return `${head}<body><a class="skip-link" href="#main">Skip to content</a>${header}<main id="main"><section class="guide-hero"><div class="shell"><p class="eyebrow">${t.guideKicker}</p><h1>${esc(articleHeading)}</h1><p>${esc(description)}</p></div></section><div class="shell guide-layout"><nav class="guide-toc" aria-label="${t.guides}"><h2>${chineseFix || localizedChineseArticle ? (localizedChineseArticle?.tocTitle || fixArticle.tocTitle) : t.quickTitle}</h2>${tocHtml}</nav><article class="guide-content">${body}${related}</article></div></main>${footer}</body></html>`;
 }
 
 function addAlternates(html, page, localeSubset = locales) {
