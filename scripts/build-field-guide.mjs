@@ -45,7 +45,8 @@ export function buildFieldGuide(root) {
     const file = path.join(root, route, 'index.html');
     fs.mkdirSync(path.dirname(file), {recursive:true});
     const output = route === '/' ? html.replace('class="field-guide"', 'class="field-guide field-guide-home"').replace(`<h1>${esc(h1)}</h1>`, `<h1>${esc(h1)}</h1><div class="home-intro">${intro}</div>`).replace('src="/assets/site.js"', 'src="/assets/site.js?v=20261029-home"') : html;
-    fs.writeFileSync(file, output.replace('<body>', '<body class="field-guide-page">'));
+    const directoryLinks = output.replace(/href="([^"]*?)index\.html([^"]*)"/g, (_, target, suffix) => `href="${target || './'}${suffix}"`);
+    fs.writeFileSync(file, directoryLinks.replace('<body>', '<body class="field-guide-page">'));
     // Finish and check each page before creating the next one.
     const saved = fs.readFileSync(file, 'utf8');
     assert.equal((saved.match(/<h1>/g) || []).length, 1, route);

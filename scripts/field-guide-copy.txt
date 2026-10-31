@@ -13,13 +13,13 @@ This site is an independent, unofficial field guide. Use the class finder below 
 
 首屏下方放 4 个卡片链接（文字直接用）：
 
-Start here — what the game is and how to get into your first run → /guide/what-is-azeroth-survivors/
+Azeroth Survivors class guide → /classes/
 
-Builds — the three-phase rule and every class page → /guide/builds/
+Azeroth Survivors lag fixes → /guide/fixes/
 
-Tier list — which class to pick for your first clear → /guide/tier-list/
+Azeroth Survivors save transfer → /guide/save-transfer/
 
-Download & fixes — browser, Windows, black screen, slow load → /guide/download/
+Azeroth Survivors how to play → /guide/how-to-play/
 
 加一个 First 10 minutes 模块，文案：
 
