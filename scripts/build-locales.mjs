@@ -4,7 +4,7 @@ import { buildFieldGuide, trustLinks } from './build-field-guide.mjs';
 import { fixLinks } from './fix-links.mjs';
 
 const root = path.resolve('dist');
-const fieldGuideRoutes = buildFieldGuide(root);
+const { routes: fieldGuideRoutes, modified: fieldGuideModified } = buildFieldGuide(root);
 const libraryFile = path.join(root, 'guide/index.html');
 let library = fs.readFileSync(libraryFile, 'utf8').replace(/<!-- field-guide-library:start -->[\s\S]*?<!-- field-guide-library:end -->/g, '');
 const libraryLinks = fieldGuideRoutes.filter(route => route.startsWith('guide/')).map(route => {
@@ -335,8 +335,8 @@ for (const page of pages) {
   const subset = page.locales;
   for (const locale of subset) sitemapRows.push({ url: route(locale, page.path), page: page.path, alternates: subset });
 }
-for (const page of additionalSitemapPages) sitemapRows.push({ url: `${origin}/${page}`, page, alternates: [locales[0]] });
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapRows.map(row => `  <url>\n    <loc>${row.url}</loc>\n${[...row.alternates.map(locale => `    <xhtml:link rel="alternate" hreflang="${locale.code}" href="${route(locale, row.page)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${route(locales[0], row.page)}"/>`].join('\n')}\n  </url>`).join('\n')}\n</urlset>\n`;
+for (const page of additionalSitemapPages) sitemapRows.push({ url: `${origin}/${page}`, page, alternates: [locales[0]], modified: fieldGuideModified.get(page) });
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapRows.map(row => `  <url>\n    <loc>${row.url}</loc>\n${row.modified ? `    <lastmod>${row.modified}</lastmod>\n` : ''}${[...row.alternates.map(locale => `    <xhtml:link rel="alternate" hreflang="${locale.code}" href="${route(locale, row.page)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${route(locales[0], row.page)}"/>`].join('\n')}\n  </url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(root, 'sitemap.xml'), sitemap);
 
 const htmlFiles = [];
