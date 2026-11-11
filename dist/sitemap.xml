@@ -567,6 +567,30 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/druid/"/>
   </url>
   <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/priest-mind-blast/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/priest-mind-blast/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/priest-mind-blast/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/warlock-spell-builds/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/warlock-spell-builds/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/warlock-spell-builds/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/mage-flamestrike-endless/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/mage-flamestrike-endless/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/mage-flamestrike-endless/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/rogue-blade-flurry-endless/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/rogue-blade-flurry-endless/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/rogue-blade-flurry-endless/"/>
+  </url>
+  <url>
     <loc>https://azerothsurvivors.shop/guide/luck/</loc>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/luck/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/luck/"/>
