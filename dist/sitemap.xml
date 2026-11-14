@@ -567,6 +567,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/druid/"/>
   </url>
   <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/paladin-hammer-of-justice-hyper/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/paladin-hammer-of-justice-hyper/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/paladin-hammer-of-justice-hyper/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/hunter-aimed-shot/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/hunter-aimed-shot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/hunter-aimed-shot/"/>
+  </url>
+  <url>
+    <loc>https://azerothsurvivors.shop/guide/builds/rogue-assassination-naxx/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/rogue-assassination-naxx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/builds/rogue-assassination-naxx/"/>
+  </url>
+  <url>
     <loc>https://azerothsurvivors.shop/guide/builds/priest-mind-blast/</loc>
     <lastmod>2026-11-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/builds/priest-mind-blast/"/>
@@ -623,7 +641,7 @@
   </url>
   <url>
     <loc>https://azerothsurvivors.shop/guide/co-op/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/co-op/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/co-op/"/>
   </url>
@@ -635,7 +653,7 @@
   </url>
   <url>
     <loc>https://azerothsurvivors.shop/guide/patch-notes/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://azerothsurvivors.shop/guide/patch-notes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://azerothsurvivors.shop/guide/patch-notes/"/>
   </url>
