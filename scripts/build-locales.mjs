@@ -329,6 +329,52 @@ for (const locale of locales.slice(4)) {
   }
 }
 
+const firstClearBuilds = {
+  'en-gb': {
+    heading: 'Choose a build for your first clear',
+    intro: 'Start with an approach that addresses how you usually lose a run. Compare your next attempts in the same zone so a change in difficulty does not hide whether the build helped.',
+    warrior: 'If you get surrounded, start with the Warrior and prioritise an area attack that clears a path through the pack.',
+    paladin: 'If occasional hits end the run, start with the Paladin and balance shields or recovery with enough damage to clear waves.',
+    hunter: 'If you prefer to keep your distance, try the Hunter. Keep an escape route open and add crowd coverage if enemies pile up behind you.',
+    names: ['Warrior', 'Paladin', 'Hunter'],
+    version: 'These are starting approaches. Check current skill descriptions in the game before spending talents, and consult the release notes if an older guide names a different effect.',
+    patches: 'Patch notes (English)',
+  },
+  'de-de': {
+    heading: 'Welcher Build hilft beim ersten Sieg?',
+    intro: 'Wähle einen Build danach, woran deine Läufe meistens scheitern. Vergleiche die nächsten Versuche in derselben Zone, damit du die Wirkung deiner Änderungen besser einschätzen kannst.',
+    warrior: 'Wenn dich Gegner einkreisen, probiere den Krieger. Wähle zuerst einen Flächenangriff, mit dem du dir einen Weg freikämpfen kannst.',
+    paladin: 'Wenn einzelne Treffer deinen Lauf beenden, probiere den Paladin. Kombiniere Schilde oder Heilung mit genügend Schaden für die Gegnerwellen.',
+    hunter: 'Wenn du lieber Abstand hältst, probiere den Jäger. Halte dir einen Fluchtweg offen und ergänze Flächenschaden, wenn sich Gegner hinter dir sammeln.',
+    names: ['Krieger', 'Paladin', 'Jäger'],
+    version: 'Das sind Vorschläge für den Einstieg. Prüfe die aktuellen Beschreibungen im Spiel, bevor du Talentpunkte ausgibst. Bei Abweichungen in älteren Guides helfen die Versionshinweise.',
+    patches: 'Versionshinweise (Englisch)',
+  },
+  'fr-fr': {
+    heading: 'Quel build choisir pour réussir sa première partie ?',
+    intro: 'Choisissez votre build en fonction de ce qui met fin à vos parties. Comparez vos prochains essais dans la même zone pour voir si votre changement vous aide.',
+    warrior: 'Si vous vous faites encercler, essayez le guerrier. Prenez d’abord une attaque de zone pour vous frayer un passage.',
+    paladin: 'Si quelques coups suffisent à vous éliminer, essayez le paladin. Combinez boucliers ou soins et dégâts suffisants pour venir à bout des vagues.',
+    hunter: 'Si vous préférez rester à distance, essayez le chasseur. Gardez une issue et ajoutez des dégâts de zone si les ennemis s’accumulent derrière vous.',
+    names: ['Guerrier', 'Paladin', 'Chasseur'],
+    version: 'Ces pistes servent à débuter. Vérifiez les descriptions actuelles en jeu avant de dépenser des points de talent. En cas d’écart avec un ancien guide, consultez les notes de version.',
+    patches: 'Notes de version (anglais)',
+  },
+};
+
+for (const [locale, copy] of Object.entries(firstClearBuilds)) {
+  const file = path.join(root, locale, 'guide/progression/index.html');
+  const builds = ['warrior', 'paladin', 'hunter'].map((name, index) =>
+    `<li><a href="/guide/builds/${name}/" hreflang="en-US">${esc(copy.names[index])} · EN</a>. ${esc(copy[name])}</li>`
+  ).join('');
+  const section = `<section id="first-clear-builds"><h2>${esc(copy.heading)}</h2><p>${esc(copy.intro)}</p><ul>${builds}</ul><p>${esc(copy.version)} <a href="/guide/patch-notes/" hreflang="en-US">${esc(copy.patches)}</a>.</p></section>`;
+  const html = fs.readFileSync(file, 'utf8')
+    .replace('</nav><article class="guide-content">', `<a href="#first-clear-builds">${esc(copy.heading)}</a></nav><article class="guide-content">`)
+    .replace('<article class="guide-content">', `<article class="guide-content">${section}`);
+  if (!html.includes(section)) throw new Error(`Missing progression article for ${locale}`);
+  fs.writeFileSync(file, html);
+}
+
 const sitemapRows = [];
 const additionalSitemapPages = ['classes/', 'guide/save-transfer/', ...fieldGuideRoutes.filter(Boolean)];
 for (const page of pages) {
