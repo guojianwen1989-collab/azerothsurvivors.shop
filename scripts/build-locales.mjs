@@ -394,16 +394,7 @@ function collectHtml(folder) {
   }
 }
 collectHtml(root);
-const adLink = 'https://araplhn.org/4/b04d973c362261149ebfae2e088bd3bf';
 const adsense = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3292171179082273" crossorigin="anonymous"></script>';
-const bauvalAdUnit = `<!-- bauval-ad:start --><div class="shell footer-ad-unit"><script async="async" data-cfasync="false" src="https://bauval.org/21/8c4d536502ccd29d9ac601dfe65b98fd"></script><div id="container-8c4d536502ccd29d9ac601dfe65b98fd"></div></div><!-- bauval-ad:end -->`;
-const adCopy = {
-  en: ['Sponsored link', 'View offer ↗'],
-  de: ['Gesponserter Link', 'Angebot ansehen ↗'],
-  fr: ['Lien sponsorisé', 'Voir l’offre ↗'],
-  ja: ['広告リンク', '広告を見る ↗'],
-  zh: ['赞助链接', '查看推荐 ↗'],
-};
 for (const file of htmlFiles) {
   let html = fs.readFileSync(file, 'utf8');
   html = html.replace(/<nav class="shell footer-trust"[\s\S]*?<\/nav>/g, '');
@@ -423,11 +414,6 @@ for (const file of htmlFiles) {
   }
   html = html.replace(/<!-- bauval-ad:start -->[\s\S]*?<!-- bauval-ad:end -->/g, '');
   html = html.replace(/<div class="shell footer-ad">[\s\S]*?<\/div>/g, '');
-  const language = html.match(/<html lang="([^"]+)"/)?.[1]?.slice(0, 2).toLowerCase() || 'en';
-  const [label, linkText] = adCopy[language] || adCopy.en;
-  const section = `<div class="shell footer-ad"><span>${label}</span><a href="${adLink}" target="_blank" rel="sponsored nofollow noopener noreferrer">${linkText}</a></div>`;
-  html = html.replace('<div class="shell footer-bottom">', `${section}<div class="shell footer-bottom">`);
-  html = html.replace('<div class="shell footer-bottom">', bauvalAdUnit + '<div class="shell footer-bottom">');
   if (!html.includes('client=ca-pub-3292171179082273')) html = html.replace('</head>', '  ' + adsense + '\n</head>');
   fs.writeFileSync(file, html);
 }
@@ -439,7 +425,6 @@ for (const file of htmlFiles) {
   if ((html.match(/class="shell footer-legal"/g) || []).length !== 1) throw new Error(`Expected one fan guide disclosure: ${path.relative(root, file)}`);
   if ((html.match(/class="shell footer-trust"/g) || []).length !== 1) throw new Error(`Expected one trust navigation: ${path.relative(root, file)}`);
   if (html.split('client=ca-pub-3292171179082273').length - 1 !== 1) throw new Error(`Expected one AdSense loader: ${path.relative(root, file)}`);
-  if (html.split('https://bauval.org/21/8c4d536502ccd29d9ac601dfe65b98fd').length - 1 !== 1 || html.split('id="container-8c4d536502ccd29d9ac601dfe65b98fd"').length - 1 !== 1) throw new Error(`Expected one Bauval ad unit: ${path.relative(root, file)}`);
   if (urlsToFiles.has(canonical)) throw new Error(`Duplicate canonical URL: ${canonical}`);
   urlsToFiles.set(canonical, file);
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
